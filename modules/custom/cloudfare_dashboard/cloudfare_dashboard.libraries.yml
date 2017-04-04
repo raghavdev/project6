@@ -1,8 +1,0 @@
-cloudfare_dashboard:
-  version: 1.x
-  css:
-    theme:
-      css/cloudfare-dashboard.css: {}
-
-
-
