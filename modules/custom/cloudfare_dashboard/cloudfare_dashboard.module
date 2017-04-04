@@ -1,0 +1,14 @@
+
+<?php
+
+/**
+ * @file
+ * Hello module.
+ */
+function cloudfare_dashboard_page_attachments(array &$attachments) {
+  if (!\Drupal::currentUser()->hasPermission('access Cloudfare')) {
+    return;
+  }
+
+  $attachments['#attached']['library'][] = 'cloudfare_dashboard/cloudfare_dashboard';
+}

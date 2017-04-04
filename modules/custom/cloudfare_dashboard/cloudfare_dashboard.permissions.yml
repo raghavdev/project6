@@ -1,0 +1,9 @@
+# In my_module.permissions.yml file.
+access Cloudfare:
+  title: 'access Cloudfare'
+  description: 'access Cloudfare'
+  restrict access: TRUE
+configure Cloudfare dashboard:
+  title: 'configure Cloudfare dashboard'
+  description: 'configure Cloudfare dashboard'
+  restrict access: TRUE

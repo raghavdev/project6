@@ -1,0 +1,32 @@
+cloudfare_dashboard.admin_settings_form:
+  path: '/admin/config/services/cloudfare-dashboard'
+  defaults:
+    _form: '\Drupal\cloudfare_dashboard\Form\CloudfareAdminSettingsForm'
+    _title: 'Configure Cloudfare Dashboard'
+  requirements:
+    _permission: 'configure Cloudfare dashboard'
+
+cloudfare_dashboard.dashboard:
+  path: '/cloudfare-dashboard'
+  defaults:
+    _title: 'Cloudfare Dashboard'
+    _controller: '\Drupal\cloudfare_dashboard\CloudfareController::cloudfare_dashboard'
+  requirements:
+    _permission: 'access Cloudfare'
+cloudfare_dashboard.record_delete:   
+  path: '/cloudfare-dashboard/{rid}/{content}/delete'
+  defaults:
+    _form: \Drupal\cloudfare_dashboard\Form\DeleteForm
+    _title: Cloudfare Dashboard
+    _title: 'Cloudfare Dashboard'
+  requirements:
+    _permission: 'access Cloudfare'
+cloudfare_dashboard.record_edit: 
+  path: '/cloudfare-dashboard/{rid}/edit'
+  defaults:
+    _title: 'Cloudfare Dashboard'
+    _controller: '\Drupal\cloudfare_dashboard\CloudfareController::cloudfare_dashboard_edit'
+  requirements:
+    _permission: 'access Cloudfare'
+
+  
