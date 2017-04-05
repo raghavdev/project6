@@ -3,7 +3,159 @@
  * Use this file to override styles if you feel uncomfortable editing
  * component stylesheets.
  ============================================================================ */
+.bp--at-core-simple-mobile .pr-navbar .regions {
+    background: #f7f7f7;
+  }
+
+a#superfish-main-toggle{
+	line-height: 0;
+    font-size: 0;
+    color: transparent;
+    background: #fff url(images/hamburger.svg);
+    height: 16px;
+    width: 35px;
+}
+
+.l-header #block-searchform form{
+	float: right;
+}
+
+.l-header #block-searchform form input.form-search{
+	width:  87%;
+}
+.l-header .submit-is-visible .search-block-form__form .form-search {
+	  padding-right: 0; 
+}
+.block__content h2{
+	display: block;
+    color: #3A3A3B;
+    font-size: 14px;
+    background: #C6C8C9;
+    padding: 3px 0 3px 10px;
+    line-height: 19px;
+}
+
+.site-branding__name {display: none;}
+#block-mainnavigation #superfish-main li.sf-depth-1 a, #block-mainnavigation #superfish-main li a:visited {
+	 padding: 10px 11px 4px;
+	 background: #fff url('images/nav_bg.jpg') top left repeat-x;
+	 text-decoration: none;
+	 color: #fff; 
+	 font-weight:bold;
+	 text-align:center;
+}
+#block-mainnavigation #superfish-main li a:hover {
+	color: #fff; 
+	background: #fff url('images/nav_bg_on.jpg') top left repeat-x;
+}
 
 
+/*Sub level menu*/
+.sf-menu.sf-style-default li ul{  
+   margin-top: -2px; width: 160px; display: block;background-color: #ddd;}
 
+/*Sub level menu list items*/
+.sf-menu.sf-style-default li ul li{display: inline;float: none;border-left: none;}
 
+/* Sub level menu links style */
+#block-mainnavigation #superfish-main li.sf-depth-1 ul li a, #block-mainnavigation #superfish-main li.sf-depth-1 ul li a:visited{
+   padding: 10px 3px 5px 8px;
+	width: 160px; /*width of sub menu levels*/
+	font-size:88%;
+	color:#000;
+	background:none;
+	background-image: none;	
+	background-color: #ddd;
+	border-width: 0 1px 1px 1px;
+	text-align:left;
+	}
+#block-mainnavigation #superfish-main li.sf-depth-1 ul li.last a, #block-mainnavigation #superfish-main li.sf-depth-1 ul li.last a:visited{
+   padding: 10px 3px 15px 8px;
+	width: 160px; /*width of sub menu levels*/
+	font-size:88%;
+	color:#000;
+	background-image: none;	
+	background-color: #ddd;
+	border-width: 0 1px 1px 1px;
+	text-align:left;
+	}
+#block-mainnavigation #superfish-main li.sf-depth-1 ul li a:hover{
+	background-image: none;	
+	background-color: #ddd;
+	color:#0071C1;
+	}
+	
+#block-mainnavigation #superfish-main li.sf-depth-1 ul li.last a:hover{
+	padding: 10px 3px 15px 8px;
+	background-image: none;	
+	background-color: #ddd;
+	color:#0071C1;
+	}
+
+.l-content-suffix #block-footerblock {
+	width: 100%;
+    border-top-color: rgb(180, 180, 180);
+    border-bottom-color: rgb(180, 180, 180);
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;	
+}
+.l-content-suffix #block-footerblock .block__content ul {
+	position: relative;
+    margin: 10px auto;
+    float: left;
+    width: 100%;
+}
+.l-content-suffix #block-footerblock .block__content ul li {
+	background-color :transparent;
+	display: block;
+	margin: 0;
+    padding: 0 25px 0 0;
+    list-style: none;
+    float: left;
+    margin-right: 3%;
+}	
+
+.l-content-suffix #block-footerblock .block__content ul li a {
+	text-decoration: none;
+    color: #0055aa;
+    display: block;
+    font-weight: bold;
+    background-color: #fff;
+}
+
+.l-content-suffix #block-footerblock .block__content ul li.employment {
+    left: 0px;
+    background: url(images/footer_sprite_new.png) no-repeat 97px 0;
+ }
+
+ .l-content-suffix #block-footerblock .block__content ul li.shop {
+    left: 0px;
+    background: url(images/footer_sprite_new.png) no-repeat 75px 0;
+ }
+
+ .l-content-suffix #block-footerblock .block__content ul li.museum {
+    left: 0px;
+    background: url(images/footer_sprite_new.png) no-repeat 74px 0;
+ }
+
+ .l-content-suffix #block-footerblock .block__content ul li.pim {
+    left: 0px;
+    background: url(images/footer_sprite_new.png) no-repeat 54px 0;
+ }
+
+ .l-content-suffix #block-footerblock .block__content ul li.aft {
+    left: 0px;
+    background: url(images/footer_sprite_new.png) no-repeat 10px 0;
+ }
+
+ .l-content-suffix #block-footerblock .block__content ul li.social {
+    left: 0px;
+    background: url(images/footer_sprite_new.png) no-repeat -21px 0;
+ }
+
+ .pr-footer {
+     color: #0055aa; 
+     background-color: transparent; 
+}
