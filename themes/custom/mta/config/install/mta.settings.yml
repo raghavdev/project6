@@ -463,10 +463,10 @@ settings:
   max_width_enable_rows: 0
   max_width_value_leaderboard: ''
   max_width_unit_leaderboard: em
-  max_width_value_header: ''
-  max_width_unit_header: em
-  max_width_value_navbar: ''
-  max_width_unit_navbar: em
+  max_width_value_header: '1200'
+  max_width_unit_header: px
+  max_width_value_navbar: '1200'
+  max_width_unit_navbar: px
   max_width_value_highlighted: ''
   max_width_unit_highlighted: em
   max_width_value_features: ''

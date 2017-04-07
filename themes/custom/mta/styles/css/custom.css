@@ -3,10 +3,21 @@
  * Use this file to override styles if you feel uncomfortable editing
  * component stylesheets.
  ============================================================================ */
+ body, .page {
+	background-image: url(images/grey_bg.jpg);
+    background-repeat: repeat-x;
+    padding: 0;
+    margin: 0px;
+}
+
 .bp--at-core-simple-mobile .pr-navbar .regions {
     background: #f7f7f7;
-  }
 
+  }
+.pr-header{
+	background-color: #fff;
+	
+}
 a#superfish-main-toggle{
 	line-height: 0;
     font-size: 0;
@@ -37,7 +48,7 @@ a#superfish-main-toggle{
 
 .site-branding__name {display: none;}
 #block-mainnavigation #superfish-main li.sf-depth-1 a, #block-mainnavigation #superfish-main li a:visited {
-	 padding: 10px 11px 4px;
+	 padding: 10px 10.4px 4px;
 	 background: #fff url('images/nav_bg.jpg') top left repeat-x;
 	 text-decoration: none;
 	 color: #fff; 
@@ -48,7 +59,9 @@ a#superfish-main-toggle{
 	color: #fff; 
 	background: #fff url('images/nav_bg_on.jpg') top left repeat-x;
 }
-
+#block-mainnavigation #superfish-main li {
+	    border-left: 1px #aeaeb0 solid;
+}
 
 /*Sub level menu*/
 .sf-menu.sf-style-default li ul{  

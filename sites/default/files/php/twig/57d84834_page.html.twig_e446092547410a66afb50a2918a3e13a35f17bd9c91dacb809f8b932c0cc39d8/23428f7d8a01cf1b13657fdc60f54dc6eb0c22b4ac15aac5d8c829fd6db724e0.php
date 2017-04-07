@@ -1,7 +1,7 @@
 <?php
 
-/* core/themes/classy/templates/navigation/menu-local-action.html.twig */
-class __TwigTemplate_9b8e5101513bb8eb33c0d24943a0d3cf2402db24820574dedb26e9eae2a67956 extends Twig_Template
+/* themes/custom/mta/templates/generated/page.html.twig */
+class __TwigTemplate_210914325f82151eff65a01b8f536d31226d117266a2be54a275bad5e5c0b1cf extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -17,13 +17,13 @@ class __TwigTemplate_9b8e5101513bb8eb33c0d24943a0d3cf2402db24820574dedb26e9eae2a
     {
         $tags = array();
         $filters = array();
-        $functions = array();
+        $functions = array("attach_library" => 9);
 
         try {
             $this->env->getExtension('sandbox')->checkSecurity(
                 array(),
                 array(),
-                array()
+                array('attach_library')
             );
         } catch (Twig_Sandbox_SecurityError $e) {
             $e->setTemplateFile($this->getTemplateName());
@@ -39,18 +39,28 @@ class __TwigTemplate_9b8e5101513bb8eb33c0d24943a0d3cf2402db24820574dedb26e9eae2a
             throw $e;
         }
 
-        // line 13
-        echo "<li";
+        // line 9
+        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, $this->env->getExtension('drupal_core')->attachLibrary("mta/mta.layout.page"), "html", null, true));
+        echo "
+<div";
+        // line 10
         echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, (isset($context["attributes"]) ? $context["attributes"] : null), "html", null, true));
-        echo ">";
-        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, (isset($context["link"]) ? $context["link"] : null), "html", null, true));
-        echo "</li>
+        echo ">
+  ";
+        // line 11
+        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, (isset($context["rows"]) ? $context["rows"] : null), "html", null, true));
+        echo "
+  ";
+        // line 12
+        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, (isset($context["attribution"]) ? $context["attribution"] : null), "html", null, true));
+        echo "
+</div>
 ";
     }
 
     public function getTemplateName()
     {
-        return "core/themes/classy/templates/navigation/menu-local-action.html.twig";
+        return "themes/custom/mta/templates/generated/page.html.twig";
     }
 
     public function isTraitable()
@@ -60,20 +70,20 @@ class __TwigTemplate_9b8e5101513bb8eb33c0d24943a0d3cf2402db24820574dedb26e9eae2a
 
     public function getDebugInfo()
     {
-        return array (  43 => 13,);
+        return array (  55 => 12,  51 => 11,  47 => 10,  43 => 9,);
     }
 }
 /* {#*/
 /* /***/
-/*  * @file*/
-/*  * Theme override for a single local action link.*/
-/*  **/
-/*  * Available variables:*/
-/*  * - attributes: HTML attributes for the wrapper element.*/
-/*  * - link: A rendered link element.*/
-/*  **/
-/*  * @see template_preprocess_menu_local_action()*/
+/*  * Layout provider: flex-builder*/
+/*  * Template suggestion: page*/
+/*  * Theme: mta*/
+/*  * Generated on: Fri, 07 Apr 17 16:09:19 +0530*/
 /*  *//* */
 /* #}*/
-/* <li{{ attributes }}>{{ link }}</li>*/
+/* {{ attach_library('mta/mta.layout.page') }}*/
+/* <div{{ attributes }}>*/
+/*   {{ rows }}*/
+/*   {{ attribution }}*/
+/* </div>*/
 /* */
