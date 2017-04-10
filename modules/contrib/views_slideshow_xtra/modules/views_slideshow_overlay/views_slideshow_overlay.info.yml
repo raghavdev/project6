@@ -1,0 +1,15 @@
+name: Views Slideshow Overlay
+type: module
+description: 'Adds overlay functionality to the Views Slideshow module.'
+# core: 8.x
+package: Views
+dependencies:
+  - node
+  - views_slideshow
+configure: views_slideshow_xtra.settings
+
+# Information added by Drupal.org packaging script on 2016-05-24
+version: '8.x-4.0-alpha2'
+core: '8.x'
+project: 'views_slideshow_xtra'
+datestamp: 1464096246

@@ -1,7 +1,8 @@
+
 <div class="accordion_blocks_container">
 {% for block in blocks %}
     <h2 class="accordion-title"><a href="#">
-            {{ block.title }}
+            {{ block.title }} <img src="{{ base_path ~ directory }}/images/tool_arrow_down.png">
     </a></h2>
     <div class="accordion-block-content">
       {{ block.content }}
