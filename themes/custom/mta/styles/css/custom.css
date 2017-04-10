@@ -10,10 +10,20 @@
     margin: 0px;
 }
 
+div.l-navbar , div.l-header{
+  max-width: 1200px;
+  align-content: center;
+  margin-left: 43px;	
+ }
+  
+
 .bp--at-core-simple-mobile .pr-navbar .regions {
     background: #f7f7f7;
 
   }
+ #navbar .l-r{
+ 	padding: 0 ;
+ } 
 .pr-header{
 	background-color: #fff;
 	
@@ -145,7 +155,7 @@ color: #f1f1f1;
 
 .site-branding__name {display: none;}
 #block-mainnavigation #superfish-main li.sf-depth-1 a, #block-mainnavigation #superfish-main li a:visited {
-	 padding: 10px 10.4px 4px;
+	 padding: 10px 11.8px 5px;
 	 background: #fff url('images/nav_bg.jpg') top left repeat-x;
 	 text-decoration: none;
 	 color: #fff; 
