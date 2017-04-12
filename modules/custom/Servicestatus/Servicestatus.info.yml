@@ -1,0 +1,9 @@
+name: MTA Service status
+type: module
+description: 'Provides Tab block view for Service Now block'
+package: Custom
+# Information added by Drupal.org packaging script on 2017-02-16
+version: '8.0.0'
+core: '8.x'
+project: 'Custom'
+datestamp: 1485975642

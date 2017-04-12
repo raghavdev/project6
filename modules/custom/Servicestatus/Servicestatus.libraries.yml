@@ -1,0 +1,12 @@
+Servicestatus:
+  version: 1.x
+  css:
+    theme:
+      css/service_status_style.css: {}
+  js:
+    js/jquery.cookie.js: {}
+    js/jquery.mtaService.js: {}
+    js/servicestatus.js: {}
+    js/ss.js: {}
+
+

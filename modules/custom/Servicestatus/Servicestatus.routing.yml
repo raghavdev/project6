@@ -1,0 +1,17 @@
+Servicestatus.status:
+  path: '/status/{service}/{line}'
+  defaults:
+    _controller: '\Drupal\Servicestatus\ServicestatusController::getStatusDetails'
+    _title: 'MTA Service Status'
+  requirements:
+    _permission: 'access Service Status'
+
+Servicestatus.statusjson:
+  path: '/service_status_json'
+  defaults:
+       _controller:  '\Drupal\Servicestatus\ServicestatusController::getStatusAsJSON'
+  requirements:
+    _permission: 'access Service Status'
+
+
+  

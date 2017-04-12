@@ -1,0 +1,5 @@
+# In my_module.permissions.yml file.
+access Service Status:
+  title: 'access Service Status'
+  description: 'access Service Status'
+  restrict access: TRUE

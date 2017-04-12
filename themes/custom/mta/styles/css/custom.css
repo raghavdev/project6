@@ -16,7 +16,20 @@ div.l-navbar , div.l-header{
   margin-left: 43px;	
  }
   
-
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+ div.l-navbar , div.l-header{
+ 
+  margin-left: 0;	
+ }	
+}
+@media all and (max-width: 45em) {
+ div.l-navbar , div.l-header{
+ 
+  margin-left: 0;	
+ }	
+	}
 .bp--at-core-simple-mobile .pr-navbar .regions {
     background: #f7f7f7;
 
