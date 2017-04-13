@@ -1,16 +1,17 @@
 <?php
 /**
  * @file
- * Contains \Drupal\Servicestatus\ServicestatusController.
+ * Contains \Drupal\Servicestatus\Controller\ServicestatusController.
  */
 
-namespace Drupal\Servicestatus;
+namespace Drupal\Servicestatus\Controller;
 
 
 
 use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\HttpFoundation\Response;
 use Drupal\Core\Link;
-use Drupal\Core\Url;
+use Drupal\Core\Url;    
 
 
 class ServicestatusController extends ControllerBase {
@@ -20,10 +21,10 @@ class ServicestatusController extends ControllerBase {
     );
   }
 
- function getStatusDetails($service = NULL, $line = NULL) {
+ public function getStatusDetails($service = NULL, $line = NULL) {
     $output = '<div id="status_display">';
 
-    if ($service != "subway" && $service != "LIRR" && $service != "MetroNorth" && $service != "bus" && $service != "BT")
+   if ($service != "subway" && $service != "LIRR" && $service != "MetroNorth" && $service != "bus" && $service != "BT")
         $output .= 'Invalid input.</div>';
     else 
     {
@@ -74,18 +75,19 @@ class ServicestatusController extends ControllerBase {
         $output .= $detailed_message . '</div>';
        
     }
-
+print $output;die();
     // Run through MTA input filter to translate tokens to images
-    $filteredhtml = check_markup($output, 'full_html'); 
+    $filteredhtml = check_markup($output, 'full_html'); */
+ 
     $build = array(
-      '#markup' => $filteredhtml
+      '#markup' =>  $filteredhtml
     );
     return $build;
 }
 
-public function getStatusAsJSON()
+public function getStatusAsJSON($rand = NULL)
 {
-
+    $response = new Response();
     $filePath = "./sites/default/files/servicestatus/servicestatus.xml";
     $lastUpdate = filemtime($filePath);
     if(time() - $lastUpdate < 60)
@@ -107,9 +109,10 @@ public function getStatusAsJSON()
     $fileContents = trim(str_replace('"', "'", $fileContents));
     $simpleXml = simplexml_load_string($fileContents);
     $json = json_encode($simpleXml);
-    
+    $response->setContent($json);
+    $response->headers->set('Content-Type', 'application/json');
     // drupal_json_output($json);
-    return $json;
+    return $response;
 }
 
 public function generateRailHeading($line)

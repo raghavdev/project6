@@ -4,9 +4,15 @@ Servicestatus:
     theme:
       css/service_status_style.css: {}
   js:
-    js/jquery.cookie.js: {}
     js/jquery.mtaService.js: {}
     js/servicestatus.js: {}
     js/ss.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+    - core/jquery
+    - core/jquery.cookie
 
 

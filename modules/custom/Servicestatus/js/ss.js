@@ -23,11 +23,12 @@
             url: url,
             dataType: 'json',
             success: function(d) {
-                var data = $.parseJSON(d);
+
+                var data = d;
 
                 var ts = (data.timestamp).split(" ");
-                $(".statusDateTime").html("as of " + ts[1] + " " + ts[2]);
-
+                $("h2#ui-id-1 span").append("as of " + ts[1] + " " + ts[2]);
+             
                 $.each(data.subway, function(key, val){
                     $.each(val, function(index, val){
                         generateHTML(val.name, val.status, differential);

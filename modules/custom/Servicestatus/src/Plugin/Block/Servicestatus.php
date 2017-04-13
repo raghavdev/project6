@@ -8,8 +8,9 @@ use Drupal\Core\Block\BlockBase;
  * Provides a 'Servicestatus' Block.
  *
  * @Block(
- *   id = "servicestatus_block",
- *   admin_label = @Translation("Service Status"),
+ *   id = "mtaservice_block",
+ *   admin_label = @Translation("MTA Service Status"),
+ *   
  * )
  */
 class Servicestatus extends BlockBase {
@@ -19,10 +20,9 @@ class Servicestatus extends BlockBase {
    */
   public function build() {
     return array(
-      '#theme' => 'Servicestatus',
-      '#title' => 'Custom Service Now',
-      '#markup' => '<div id="status-whole-block">ServiceNow Is here</div>',
-    );
+      '#markup' => $this->t('This is content'),
+      '#description' => 'Service Now',
+      '#title' => 'Service Now',
   }
 
 }

@@ -6,11 +6,9 @@
  * Hello module.
  */
 function Servicestatus_page_attachments(array &$attachments) {
-  if (!\Drupal::currentUser()->hasPermission('access Cloudfare')) {
-    return;
-  }
-
-  $attachments['#attached']['library'][] = 'Servicestatus/Servicestatus';
+ if (\Drupal::routeMatch()->getRouteName() === 'page_manager.page_view_home_page') {
+   $attachments['#attached']['library'][] = 'Servicestatus/Servicestatus';
+ }
 }
 
 function Servicestatus_theme($existing, $type, $theme, $path) {

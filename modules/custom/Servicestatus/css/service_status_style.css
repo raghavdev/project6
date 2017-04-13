@@ -1,10 +1,10 @@
-body{font:13px/1.231 helvetica,arial,clean,sans-serif;font-size:small;font:x-small;
+#block-mtaservicestatus {font:13px/1.231 helvetica,arial,clean,sans-serif;font-size:small;font:x-small;
     font-family: Arial,Helvetica,sans-serif;
 }
 
-table{font-size:inherit;font:100%;}
+#block-mtaservicestatus table{font-size:inherit;font:100%;}
 
-#statusDateTime {
+#block-mtaservicestatus .statusDateTime {
 	font-size: 11px;
 	font-weight: bold;
 	color: #fff;
@@ -97,12 +97,13 @@ font-weight:bold;
 .subway_ServiceChange, .bus_ServiceChange, .rail_ServiceChange, .BT_ServiceChange {
 	color: #996600;
 }
-#block-servicestatus-mta-service-status {
+#block-mtaservicestatus {
 	margin-bottom:10px;
 	margin-top:0;
 	min-height: 320px;
+	max-width: 330px;
 	}
-#block-servicestatus-mta-service-status h2 {
+#block-mtaservicestatus h2 {
 	margin-bottom:3px;
 }
 
@@ -212,16 +213,16 @@ tr td img {
 
 .gw { font-weight: bold; color: #555; font-size: 85%; text-decoration: none; }
 
-.t { display: inline; float: left; }
+.t { display: inline; float: left; margin-right: 7px; }
 .tlast { border-right: none;}
-#block-servicestatus-mta-service-status ul li.tdiv { 
+#block-mtaservicestatus	 ul li.tdiv { 
 	float: left; 
 	padding: 0 0 10px;
 	margin: 0 0 3px;
 	background: url(images/gray_arrow.png) center 100px no-repeat;
 }
 
-#block-servicestatus-mta-service-status ul li#subwayTab  span {
+#block-mtaservicestatus ul li#subwayTab  span {
   display: block;
   padding: 4px 7px; 
   border-right: 1px dotted #525464;
@@ -235,7 +236,7 @@ tr td img {
   font-size: 11px; 
 }
 
-#block-servicestatus-mta-service-status ul li#busTab  span {
+#block-mtaservicestatus ul li#busTab  span {
   display: block;
   padding: 4px 7px; 
   border-right: 1px dotted #525464;
@@ -249,7 +250,7 @@ tr td img {
   font-size: 11px; 
 }
 
-#block-servicestatus-mta-service-status ul li#lirrTab  span {
+#block-mtaservicestatus ul li#lirrTab  span {
   display: block;
   padding: 4px 7px; 
   border-right: 1px dotted #525464;
@@ -263,7 +264,7 @@ tr td img {
   font-size: 11px; 
 }
 
-#block-servicestatus-mta-service-status ul li#mnrTab  span {
+#block-mtaservicestatus ul li#mnrTab  span {
   display: block;
   padding: 4px 7px; 
   border-right: 1px dotted #525464;
@@ -277,7 +278,7 @@ tr td img {
   font-size: 11px; 
 }
 
-#block-servicestatus-mta-service-status ul li#bntTab  span {
+#block-mtaservicestatus ul li#bntTab  span {
   display: block;
   padding: 4px 7px; 
   border-right: 0px dotted #525464;
@@ -292,16 +293,16 @@ tr td img {
 }
 
 
-#block-servicestatus-mta-service-status ul li.selectedStatusTab {
+#block-mtaservicestatus ul li.selectedStatusTab {
   background-position: center bottom;
 }
 
-#block-servicestatus-mta-service-status ul li.selectedStatusTab span {
+#block-mtaservicestatus ul li.selectedStatusTab span {
   background-color: #525257; color:#fff !important;
 }
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-   #block-servicestatus-mta-service-status ul li.tdiv {
+   #block-mtaservicestatus ul li.tdiv {
   padding: 0 4px 0 1px;
 }
 }
@@ -331,13 +332,13 @@ tr td img {
 #lirrDiv .statusrow {padding-top: 5px; height: 20px;}
 .span-11 {float: left;}
 
-#block-servicestatus-mta-service-status > .content {
+#block-mtaservicestatus > .content {
 padding: 5px 0 0 10px;
 }
 
-#block-servicestatus-mta-service-status > .content >div {
+#block-mtaservicestatus > .content >div {
   float: none !important;
 }
-#block-servicestatus-mta-service-status > .content > div > div {
+#block-mtaservicestatus > .content > div > div {
   float: none !important;
 }
