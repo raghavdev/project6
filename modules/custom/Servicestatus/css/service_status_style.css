@@ -4,13 +4,13 @@
 
 #ui-id-2 table{font-size:inherit;font:100%;}
 
-#ui-id-2 .statusDateTime {
+#statusDateTime {
 	font-size: 11px;
 	font-weight: bold;
 	color: #fff;
 	position: absolute;
-	top: -19px;
-	right: 30px;
+	top: 43px;
+	right: 43px;
 }
 
 .statusheading {
@@ -102,6 +102,7 @@ font-weight:bold;
 	margin-top:0;
 	min-height: 320px;
 	max-width: 330px;
+	padding:0;
 	}
 #ui-id-2 h2 {
 	margin-bottom:3px;
@@ -321,15 +322,15 @@ tr td img {
 
 .plannedWorkDetail { display:  none; }
 .plannedWorkDetailLink { cursor: pointer; text-decoration: underline; }
-.statusrow {height: 25px; width: 320px;}
+.statusrow {height: 25px; width: 245px;}
 #busDiv {padding-left: 5px;}
 #busDiv .statusrow {height: 28px;}
 #subwayDiv .statusrow {height: 25px;}
-#mnrDiv .statusrow {height: 22px; padding-top: 10px; border-top: 1px dotted #999;}
+#mnrDiv .statusrow {height: 22px; padding-top: 10px; padding-bottom: 20px; border-top: 1px dotted #999;}
 #mnrDiv .statusrow:first-child {border-top: 0 none;}
-#bntDiv .statusrow {height: 21px; padding-top: 10px;}
+#bntDiv .statusrow {height: 21px; padding-top: 10px; padding-bottom: 20px;}
 #mnrDiv .substation {border-top: 0 none;}
-#lirrDiv .statusrow {padding-top: 5px; height: 20px;}
+#lirrDiv .statusrow {padding-top: 5px; height: 20px; padding-bottom: 20px;}
 .span-11 {float: left;}
 
 #ui-id-2 > .content {

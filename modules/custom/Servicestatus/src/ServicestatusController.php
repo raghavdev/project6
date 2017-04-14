@@ -75,7 +75,7 @@ class ServicestatusController extends ControllerBase {
         $output .= $detailed_message . '</div>';
        
     }
-print $output;die();
+
     // Run through MTA input filter to translate tokens to images
     $filteredhtml = check_markup($output, 'full_html'); */
  

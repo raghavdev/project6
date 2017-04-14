@@ -27,7 +27,7 @@
                 var data = d;
 
                 var ts = (data.timestamp).split(" ");
-                $("h2#ui-id-1 span").append("as of " + ts[1] + " " + ts[2]);
+                $("#statusDateTime").html("as of " + ts[1] + " " + ts[2]);
              
                 $.each(data.subway, function(key, val){
                     $.each(val, function(index, val){
