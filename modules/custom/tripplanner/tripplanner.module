@@ -1,0 +1,21 @@
+
+<?php
+
+/**
+ * @file
+ * Hello module.
+ */
+function tripplanner_page_attachments(array &$attachments) {
+ if (\Drupal::routeMatch()->getRouteName() === 'page_manager.page_view_home_page') {
+    $attachments['#attached']['library'][] = 'tripplanner/Tripplanner';
+  }
+}
+function tripplanner_theme() {
+  return [
+    'tripplanner' => [
+      // Here you can pass any variables you want, if necessary.
+      'variables' => ['trip1' => NULL],
+       'template' => 'tripplanner'
+    ],
+  ];
+}

@@ -9,7 +9,9 @@
     padding: 0;
     margin: 0px;
 }
-
+ui-datepicker-div {
+    z-index: 9999 !important;
+}
 div.l-navbar , div.l-header{
   max-width: 1200px;
   align-content: center;
@@ -74,6 +76,13 @@ a#superfish-main-toggle{
     line-height: 19px;
     margin-bottom: 0;
 
+}
+.ui-accordion .ui-accordion-content {
+    padding:0;
+    overflow: hidden;
+}
+#block-mtatripplanner {
+    margin:0;
 }
 .accordion-block-content h2.block__title {
 	display:none;

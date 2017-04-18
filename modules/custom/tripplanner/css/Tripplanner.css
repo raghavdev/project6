@@ -1,0 +1,162 @@
+/* Trip Planner Styles */
+/* Also see mytrip.php */
+
+
+/*
+#block-tripplanner-tripplanner {
+  width: 220px;
+  height: 474px;
+  padding: 3px;
+  border: 1px solid #B4B4B4;
+    border-radius: 5px 5px 5px 5px;
+  }
+*/  
+  
+#block-tripplanner-tripplanner{
+  position:inherit;
+  width: 302px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+#mytrip table { margin-bottom: margin-top:5px; 0px; background-color:#fff; }
+#mytrip td { padding: 3px; }
+#mytrip td.rightAlign { text-align: right; }
+#mytrip label {
+
+display:inline-block;
+    font-size: 12px;
+    margin: 3px 1px 0 3px;
+  
+
+.ui-accordion-content { overflow:  hidden; }
+} 
+  
+  
+/*
+
+#mytrip { 
+  
+  height: 433px;
+    margin-top: -8px;
+    padding: 0 3px, 0 3px;
+    }
+    */
+  
+#mytrip { 
+  margin-top:0;
+  padding:0px;
+  width:inherit;
+}
+
+/* Display Trip Planner Plus logo image as H2 */
+
+.tp-logo, .tp-logo span {
+  width:149px;
+  height:22px;
+  background-image: url("/sites/all/themes/mta/images/Trip_logo_mta.jpg");
+  background-repeat: no-repeat;
+  background-position: -3px 0; 
+  }
+
+
+h2.tp-logo span {
+  display:block;
+  position:relative;
+  z-index:1;
+   }
+
+h2.tp-logo {
+  overflow:hidden; {
+    font-size: 1.5em;
+    line-height: 2em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+   }
+/* IE5 Mac Hack \*/ h1 { overflow: hidden; } /*/ h1 { text-indent: -100em; } /* End Hack */
+
+
+#mytrip table {
+  margin-top:5px;
+  background-color:#fff;
+   }
+
+#mytrip td {
+  padding: 3px;
+  }
+
+#mytrip td.rightAlign {
+  text-align: right;
+  }
+
+#mytrip label {
+  display:inline;
+  font-weight:normal;
+  }
+
+
+/*
+#tpForm {
+  font-size: 100%;
+  
+}
+*/
+
+
+
+
+#tp-footer .list_h {
+    padding-top:2px;
+    font-size:85%;
+  }
+
+
+input[name=txtOriginInput] {
+    width: 80%;
+  }
+
+
+#mytrip label#lbltime {display:none}
+#divTime {margin-left: 3px; margin-top: 10px;}
+#block-block-576 #divTime, #block-block-576--2 #divTime {margin-top: 0px}
+#tpDate {display: inline; margin-left: 20px}
+#block-block-576 .tp-bar fieldset, #block-block-576--2 .tp-bar fieldset {margin-top: -20px; padding: 0;}
+#fdate {width: 100px;}
+#fdate {font-size: 10px; font-weight: bold; color:#525257;}
+#ftime {font-size: 10px; font-weight: bold; color:#525257;}
+#fdatelabel {margin-left: 25px}
+#ftime {width: 50px;}
+#lbltime {margin-top: 10px;}
+#ddlHour, #ddlMinute {display:none}
+
+
+/* overrides http://metrota2.localhost:8080/sites/all/themes/mta/css/global.css ln 286 */
+#mytrip button,
+#mytrip input[type="button"],
+#mytrip input[type="reset"],
+#mytrip input[type="submit"]  {
+  margin: 8px 0 0 0; 
+  background: #525257;
+  -webkit-appearance: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  border-color: none;
+  cursor: pointer;
+  color: white;
+  outline: 0;
+  overflow: visible;
+  padding: 4px 5px 3px 5px;
+  text-shadow: none;
+  width: 63px;
+  height: 21px;
+  float: right;
+  font-size: 11px;
+  font-weight: bold;
+  }
+
+#block-tripplanner-tripplanner #txtOriginInput, #block-tripplanner-tripplanner #txtDestinationInput {
+    float: right;
+    width: 80% !important;
+}

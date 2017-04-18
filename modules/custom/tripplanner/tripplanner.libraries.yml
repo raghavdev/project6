@@ -1,0 +1,25 @@
+Tripplanner:
+  version: 1.x
+  css:
+    theme:
+      css/Tripplanner.css: {}
+      css/tripplanner_jquery.timepicker.css: {}
+
+  js:
+    js/initTP.js: {}
+    js/SmartTrip.js: {}
+    js/tripplanner_ext.js: {}
+    js/JSON.js: {}
+    js/CookieFunctions.js: {}
+    js/landmarks.js: {}
+    js/mapcontrol.js: {}
+    js/bingToken.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.ui
+    - core/jquery.ui.core
+    - core/jquery.ui.datepicker
+
+
