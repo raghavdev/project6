@@ -1,0 +1,47 @@
+cloudfare_dashboard.admin_settings_form:
+  path: '/admin/config/services/cloudflare-dashboard'
+  defaults:
+    _form: '\Drupal\cloudfare_dashboard\Form\CloudfareAdminSettingsForm'
+    _title: 'Configure Cloudflare Dashboard'
+  requirements:
+    _permission: 'configure Cloudflare dashboard'
+
+cloudfare_dashboard.overview:
+  path: '/cloudflare-overview'
+  defaults:
+    _title: 'Cloudflare Overview'
+    _controller: '\Drupal\cloudfare_dashboard\CloudfareController::cloudfare_overview'
+  requirements:
+    _permission: 'access Cloudflare'
+
+cloudfare_dashboard.zonedetails:
+  path: '/cloudflare-zone-details/{zid}'
+  defaults:
+    _title: 'Cloudflare Overview'
+    _controller: '\Drupal\cloudfare_dashboard\CloudfareController::cloudfare_zone_details'
+  requirements:
+    _permission: 'access Cloudflare'
+
+cloudfare_dashboard.dashboard:
+  path: '/cloudflare-dashboard'
+  defaults:
+    _title: 'Cloudflare Dashboard'
+    _controller: '\Drupal\cloudfare_dashboard\CloudfareController::cloudfare_dashboard'
+  requirements:
+    _permission: 'access Cloudflare'
+cloudfare_dashboard.record_delete:   
+  path: '/cloudflare-dashboard/{rid}/{content}/delete'
+  defaults:
+    _form: \Drupal\cloudflare_dashboard\Form\DeleteForm
+    _title: 'Cloudflare Dashboard'
+  requirements:
+    _permission: 'access Cloudflare'
+cloudfare_dashboard.record_edit: 
+  path: '/cloudflare-dashboard/{rid}/edit'
+  defaults:
+    _title: 'Cloudflare Dashboard'
+    _controller: '\Drupal\cloudfare_dashboard\CloudfareController::cloudfare_dashboard_edit'
+  requirements:
+    _permission: 'access Cloudflare'
+
+  

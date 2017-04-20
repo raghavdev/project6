@@ -9,6 +9,7 @@
     padding: 0;
     margin: 0px;
 }
+#block-gtranslate{float:left;}
 ui-datepicker-div {
     z-index: 9999 !important;
 }

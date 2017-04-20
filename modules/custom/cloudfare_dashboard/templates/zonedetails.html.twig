@@ -1,0 +1,68 @@
+
+{{ dump(zone) }}
+
+<div id="zone-details-wrapper">
+<div id="zone-details">
+
+<div class="info {{ zone.status_original }}">
+    <div class="status"><i class="icon icon-ok-sign h3"></i></div>
+    <h3 class="domain-name">{{ zone.name }}</h3>
+</div>
+
+<div class="mod-setting">
+  <header class="mod-header">
+  <div><h3 class="mod-title"> Status: {{ zone.status }}</h3></div>
+  <p>This website is {{ zone.status_original }} on Cloudflare.</p>
+  </header>
+</div>
+
+
+</div>
+
+
+
+
+
+<section class="modunit">
+<header class="mod-header">
+	<div><h3 class="mod-title">Domain Summary</h3>
+
+	</div>
+</header>
+<div class="settings"><div data-cid="view593"><div class="settings-column">
+  <div class="setting">
+    <i class="icon icon-lock"></i>
+    <div class="summary crypto">
+      <p><strong>Security Level:</strong> <a href="#">{{ zone.security_level }}</a></p>
+
+      <p><strong>SSL:</strong> <a href="#">{{ zone.ssl }}</a></p>
+
+    </div>
+  </div>
+
+  <div class="setting">
+    <i class="icon icon-drive"></i>
+    <div class="summary caching">
+      <p><strong>Caching Level:</strong> <a href="#">{{ zone.cache_level }}</a></p>
+
+      <p><strong>Development Mode:</strong> <a href="#">{{ zone.development_mode }}</a></p>
+
+    </div>
+  </div>
+</div>
+
+<div class="settings-column">
+  <div class="setting">
+    <i class="icon icon-api"></i>
+    <div class="summary">
+      <strong><p>Zone ID:</p></strong>
+      <textarea rows="1" cols="35" readonly="" class="copyable-textarea">{{ zone.id }}</textarea>
+      
+        <strong><p>Organization ID:</p></strong>
+        <textarea rows="1" cols="35" readonly="" class="copyable-textarea">{{ zone.org_id }}</textarea>
+    </div>
+  </div>
+</div></div></div>
+
+</section>
+</div>

@@ -4,46 +4,15 @@
 <div id ="mytrip" class="roundCorners">
 <!--My Trip start 1-->
 
-    <style type="text/css">
-	.listing
-	{
-		font-family: helvetica, arial, sans-serif;
-		font-size: 12px;
-		font-weight: normal;
-		width: 200px;
-		border: solid 1px black;
-	}
-	#tp-footer .list_h {
-		padding-top:2px;
-		font-size:85%;
-	}
-	
-	.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
-      font-family: sans-serif;
-      font-size: 11px;
-    }
-    
-    #mytrip label { margin: 0 0 0 0 !important; }
-    #mytrip table { border: none; margin: 0; width: 95%; }
-    #mytrip table tbody { border: none; }
-    #mytrip table tbody tr { border: none; }
-    #mytrip table tr td { vertical-align: top; padding: 0 0 0 !important; }
-    #mytrip input { margin-right: 0px;}
-    #mytrip select { margin-right: 0px;}
-	
-	
-	
-    </style>
 
     <!-- My Trip end 1-->
-<img src="/loading.gif" id="tpimageForWait"
-                            style="visibility:hidden; position:absolute; left: 780px; top: 190px;" />
+<img src="/loading.gif" id="tpimageForWait" style="visibility:hidden; position:absolute;left:83px;" />
 
 
                    <!--My Trip start 2-->
 
                         <img src="/loading.gif" id="tpimageForWait" style="visibility: hidden;
-                            position: absolute; left: 780px; top: 190px;" />
+                            position: absolute; left: 83px;" />
                         <table cellpadding="0" cellspacing="0" style="width: 100%; display:none;   margin-bottom: 0;" >
                             <tr>
                                  <td id="divCP" onclick="ShowTpForm('CP')" style="background-color: #00BB11; color: White;

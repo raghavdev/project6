@@ -1,0 +1,9 @@
+# In my_module.permissions.yml file.
+access Cloudflare:
+  title: 'access Cloudflare'
+  description: 'access Cloudflare'
+  restrict access: TRUE
+configure Cloudflare dashboard:
+  title: 'configure Cloudflare dashboard'
+  description: 'configure Cloudflare dashboard'
+  restrict access: TRUE

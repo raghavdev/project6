@@ -1,0 +1,25 @@
+
+<?php
+
+/**
+ * @file
+ * Hello module.
+ */
+function cloudfare_dashboard_page_attachments(array &$attachments) {
+  if (!\Drupal::currentUser()->hasPermission('access Cloudflare')) {
+    return;
+  }
+
+  $attachments['#attached']['library'][] = 'cloudfare_dashboard/cloudfare_dashboard';
+}
+
+function cloudfare_dashboard_theme() {
+	$module_path = drupal_get_path('module', 'cloudfare_dashboard').'/templates/';
+  return [
+    'clodefare_zone_details' => [
+      // Here you can pass any variables you want, if necessary.
+      'variables' => ['zone' => NULL],
+       'template' => 'zonedetails'
+    ],
+  ];
+}

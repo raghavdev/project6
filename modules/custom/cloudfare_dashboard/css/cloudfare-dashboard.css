@@ -1,0 +1,154 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 14, 2016, 4:19:09 PM
+    Author     : Chandan Kumar
+*/
+
+#zone-details-wrapper { color: #000;}
+ #zone-details{
+  border: 1px solid;
+}
+ #zone-details h3 {
+    font-size: 1.46667rem;
+    line-height: 1.3;
+ }
+
+ #zone-details .info h3 {
+ color: #FFF;
+}
+.icon{
+  font-family: 'cloudflare-font';
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline;
+    width: auto;
+    height: auto;
+    line-height: normal;
+    vertical-align: baseline;
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    margin-top: 0;
+  }
+ #zone-details .info.active {
+    background: #9bca3e;
+    margin: 0;
+    padding: 1.46667rem;
+    width: 100%
+    color: #FFF;
+}
+
+ #zone-details .info {
+    background: #474747;
+    margin: 0;
+    padding: 1.46667rem;
+    width: 100%
+    color: #FFF;
+}
+
+}
+.site-status .info {
+    background: #474747;
+    margin: 0;
+    padding: 1.46667rem;
+    width: 100%;
+}
+
+#zone-details .info .status {
+    float: right;
+}
+
+#zone-details .domain-name {
+    width: 80%;
+    word-wrap: break-word;
+    color: #FFF;
+}
+#zone-details.mod-setting .mod-header {
+    display: block;
+}
+.mod-title {
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+.mod-setting{
+  padding: 20px;
+}
+
+section.modunit{
+  border: 1px solid;
+  margin-top: 25px;
+  padding: 20px;
+}
+section.modunit .settings {
+    border-top: none;
+    padding: 1.46667rem;
+    padding-top: 0;
+}
+  
+section.modunit .settings .settings-column {
+    display: inline-block;
+    vertical-align: middle;
+    vertical-align: top;
+    width: 49%;
+}
+section.modunit .settings .setting {
+    margin-bottom: 2em;
+    display: block;
+    width: 100%;
+}
+section.modunit .settings .icon {
+    font-size: 20px;
+    color: #2f7bbf;
+    float: left;
+}
+section.modunit .settings .summary {
+    margin: 0 0 0 3em;
+}
+
+section.modunit a {
+    color: #2f7bbf;
+    outline: none;
+    text-decoration: none;
+    -moz-transition: all 0.15s ease;
+    -o-transition: all 0.15s ease;
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+}
+
+
+
+/*dns Serahc form */
+form#dns-search-form{
+  width: 100%;
+}
+
+form#dns-search-form .form-item-dns-search label{
+ display: none;
+}
+input#edit-dns-search{
+  float: left;
+  width: 70%;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+form#dns-search-form .form-item-dns-search span{
+  display: none;
+}
+form#dns-form{
+  float:left;
+  width:100%;
+}
+form#dns-form .form-item {
+  float:left;
+  margin-right: 10px;
+}
+form#dns-form .form-submit{
+  margin: 10px 0 0 0;
+}
