@@ -35,9 +35,7 @@ class DNSForm extends FormBase {
  
    */
  
-  public function buildForm(array $form, FormStateInterface $form_state,$rid = NULL) {
-
-
+  public function buildForm(array $form, FormStateInterface $form_state,$rid = NULL, $zid= NULL) {
 
     $type_options = array("A" => "A", "AAAA" => "AAAA", "CNAME" => "CNAME", "TXT" => "TXT", "SRV" => "SRV","LOC" => "LOC", "MX" => "MX", "NS" => "NS", "SPF" => "SPF");
   $ttl_options = array(
@@ -53,6 +51,7 @@ class DNSForm extends FormBase {
     "43200" => "12 hours",
     "86400" => "1 day"
   );
+  $zone_id = $zid;
   if(isset($rid)){
     $config = $this->config('cloudfare.settings');
     $username = $config->get('cloudfare.username');
@@ -62,12 +61,23 @@ class DNSForm extends FormBase {
   
     $zone_params = $enpoint.'zones';
     $zone = $this->_get_api_data($zone_params);
-    $zone_id = $zone->result[0]->id;
+    
+    if($zid != NULL) {
+      $zone_id = $zid;
+    }else{
+      $zone_id = $zone->result[0]->id;  
+    }
     $output = '';
     $dns_params = $enpoint."zones/".$zone_id."/dns_records/".$rid;
     $dns = $this->_get_api_data($dns_params);
     $result  = $dns->result;
    }
+
+   $form['zid'] = array(
+      '#type' => 'hidden',
+      '#value' => $zone_id,
+    );
+
   $form['dns_type']= array(
        '#type' => 'select',
        '#title' => t('Type'),
@@ -95,11 +105,18 @@ class DNSForm extends FormBase {
        '#options' => $ttl_options,
        '#required' => FALSE,
   );
+    $form['dns_status']= array(
+       '#type' => 'select',
+       '#title' => t('Type'),
+       '#options' => array("false" => "DNS Only","true" => "DNS and HTTP Proxy (CDN)"),
+       '#required' => TRUE,
+    );
   if(!empty($result)){
     $form['dns_type']['#default_value'] = $result->type;
     $form['dns_ttl']['#default_value'] = $result->ttl;
     $form['dns_content']['#default_value'] = $result->content;
     $form['dns_name']['#default_value'] = $result->name;
+    $form['dns_status'] = $result->proxied;
     /*
  * Page callback for Source list
  * It will display all the source list with checkbox
@@ -107,13 +124,7 @@ class DNSForm extends FormBase {
  * if [proxied] is empty means DNS Only
  * else if [proxied] is 1 then DNS and HTTP Proxy (CDN)
  */
-    $form['dns_status']= array(
-       '#type' => 'select',
-       '#title' => t('Type'),
-       '#options' => array("false" => "DNS Only","true" => "DNS and HTTP Proxy (CDN)"),
-       '#required' => TRUE,
-       '#default_value' => $result->proxied
-    );
+  
     $form['rid'] = array(
       '#type' => 'hidden',
       '#value' => $result->id,
@@ -151,10 +162,12 @@ class DNSForm extends FormBase {
   $values['dns_content'] = $form_state->getValue('dns_content');
   $values['dns_ttl'] = $form_state->getValue('dns_ttl');
   $values['dns_status'] = $form_state->getValue('dns_status');
+  $values['zid'] = $form_state->getValue('zid');
   $values['rid'] = $form_state->getValue('rid');
+  
   $values['op'] = $form_state->getValue('op')->getUntranslatedString();
 
- 
+
   if($values['op'] == 'Update Record' && !empty($values['rid'])) {
     $data = array(
      'type' => $values['dns_type'],
@@ -167,7 +180,7 @@ class DNSForm extends FormBase {
     }else{
       $data['proxied'] = FALSE;
     }
-    $result = $this->_save_api_data($data,$values['rid']);
+    $result = $this->_save_api_data($data,$values['rid'], $values['zid']);
   }else{
     $data = array(
      'type' => $values['dns_type'],
@@ -175,24 +188,31 @@ class DNSForm extends FormBase {
      'content' => $values['dns_content'],
      'ttl' => $values['dns_ttl'],
     );
-    $result = $this->_save_api_data($data);
+    if( $values['dns_status'] == "true"){
+      $data['proxied'] = TRUE;
+    }else{
+      $data['proxied'] = FALSE;
+    }
+    $result = $this->_save_api_data($data,NULL, $values['zid']);
   }
-  
+
   if($result->success == 1 && $values['op'] != 'Update Record' ) { 
     drupal_set_message("DNS Record is added");
   }else if($result->success == 1 && $values['op'] == 'Update Record'){
     drupal_set_message("DNS Record has been Updated");
-     $form_state->setRedirect('cloudfare_dashboard.dashboard');
+     $form_state->setRedirect('cloudfare_dashboard.dashboard',
+  array('zid' => $values['zid']));
   }else{
     drupal_set_message("DNS is not added, might be some problem with the Webserver.Please try after some time", 'error');
-    $form_state->setRedirect('cloudfare_dashboard.dashboard');
+    $form_state->setRedirect('cloudfare_dashboard.dashboard',
+  array('zid' => $values['zid']));
   }
  
   }
  
 
 
- protected function _save_api_data($data,$id = '') {
+ protected function _save_api_data($data,$id = '', $zid = NULL) {
 
   $config = $this->config('cloudfare.settings');
   $username = $config->get('cloudfare.username');
@@ -203,13 +223,19 @@ class DNSForm extends FormBase {
 
   $zone_params = $enpoint.'zones';
   $zone = $this->_get_api_data($zone_params);
-  $zone_id = $zone->result[0]->id;
+   if($zid != NULL) {
+      $zone_id = $zid;
+   }else{
+      $zone_id = $zone->result[0]->id;  
+   }
+
   $output = '';
   if($id != ''){
      $dns_params = $enpoint."zones/".$zone_id."/dns_records/".$id;
   }else {
     $dns_params = $enpoint."zones/".$zone_id."/dns_records";
   }
+
   $jdata = json_encode($data);
   
   $ch = curl_init();

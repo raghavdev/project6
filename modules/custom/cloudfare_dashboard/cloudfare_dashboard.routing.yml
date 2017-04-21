@@ -23,7 +23,7 @@ cloudfare_dashboard.zonedetails:
     _permission: 'access Cloudflare'
 
 cloudfare_dashboard.dashboard:
-  path: '/cloudflare-dashboard'
+  path: '/cloudflare-dashboard/{zid}'
   defaults:
     _title: 'Cloudflare Dashboard'
     _controller: '\Drupal\cloudfare_dashboard\CloudfareController::cloudfare_dashboard'

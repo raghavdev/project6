@@ -81,10 +81,14 @@ and open the template in the editor.
   padding: 20px;
 }
 
-section.modunit{
+section.modunit, section.card {
   border: 1px solid;
   margin-top: 25px;
   padding: 20px;
+  color: #000;
+}
+section.card table{
+  width:100%;
 }
 section.modunit .settings {
     border-top: none;

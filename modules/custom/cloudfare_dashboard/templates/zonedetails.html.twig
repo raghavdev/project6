@@ -66,3 +66,72 @@
 
 </section>
 </div>
+
+
+<section class="card">
+   <div class="card__sections_container">
+    <div class="card__sections">
+      <div class="card__section card__section--control">
+       <div class="card__control_text card__content_container">
+        <div class="card__content">
+          <h3 class="card__title">Page Rules</h3>
+          <p><strong>You have {{ zone.page_rule_count }} Page Rules left</strong>. </p>
+          <p>Page Rules let you control which Cloudflare settings trigger on a given URL. Only one Page Rule will trigger per URL, so it is helpful if you sort Page Rules in priority order, and make your URL patterns as specific as possible.</p>
+        </div>
+       </div>
+      </div>
+      <div class="card__section card__section--table">
+       <div class="card__table">
+		{% if zone.page_rule_count  < 20 %} 
+        <div class="table-container">
+
+           <table class="table table-striped table-hover page-rules-table">
+           <thead><tr>
+           <th class="sortable-arrow-cell renderable arrow"></th>
+           <th class="renderable url">URL/Description</th>
+           </tr></thead>
+           <tfoot></tfoot>
+           <tbody>
+
+           {% for key,value in zone.pagerules %}
+           <tr draggable="true" data-cid="view934" class="draggable">
+           <td class="sortable-arrow-cell renderable">
+           <i class="ui-item vert-arrows drag-handle"></i><span class="sortable-index">{{ key }}</span>
+           </td>
+           <td class="page-rule-description-cell renderable">{{ value.val }}<br><span class="text-nonessential">{{ value.id }}</span>
+           </td>
+           </tr>
+           {% endfor %}
+           </tbody></table>
+         </div>
+         {% else %}
+         <strong>No Page Rules Defined</strong>
+         {% endif %}
+        </div>
+      </div>
+
+
+      </div></div></section>
+
+<!-- Challange Passage -->
+      <section class="card">
+   <div class="card__sections_container">
+    <div class="card__sections">
+      <div class="card__section card__section--control">
+       <div class="card__control_text card__content_container">
+        <div class="card__content">
+          <h3 class="card__title">Challenge Passage</h3>
+           <p>Specify how long a visitor is allowed access to your website after completing a challenge.</p>
+        </div>
+       </div>
+      </div>
+      <div class="card__section card__section--table">
+       <div class="card__table">
+	
+         <strong>{{ zone.challange_minutes }} minutes</strong>
+      
+        </div>
+      </div>
+
+
+      </div></div></section>

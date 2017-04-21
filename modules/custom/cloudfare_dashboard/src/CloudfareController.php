@@ -37,19 +37,31 @@ class CloudfareController extends ControllerBase {
    $zone = $this->_get_api_data($zone_params);
    if($zone->result_info->total_count > 0) {
     $row = array();
-    $header = array(t('Zone Id'),t('Organization ID'),t('Zone Name'),t('Status'), t('Details'));
+    // 
+    $header = array(t('Zone Id'),t('Organization ID'),t('Website Name'),t('Status'), t('Details'),t('DNS List'));
     foreach($zone->result as $z => $val) {
       $zoneurl = Url::fromUserInput('/cloudflare-zone-details/'.$val->id); 
       $zonelink = Link::fromTextAndUrl(t("View Detail"), $zoneurl );
       $zonelink = $zonelink->toRenderable();
       $zonelink['#attributes'] = array('class' => array('internal'));
       $zone_details = render($zonelink);
+
+      // DNS list url 
+
+      $dnsurl = Url::fromUserInput('/cloudflare-dashboard/'.$val->id); 
+      $dnsurllink = Link::fromTextAndUrl(t("View DNS list"), $dnsurl );
+      $dnsurllink = $dnsurllink->toRenderable();
+      $dnsurllink['#attributes'] = array('class' => array('internal'));
+      $dnsurl_details = render($dnsurllink);
+
+
       $rows[] =   array(
                        array(  '#type' => 'markup', 'data' => $val->id ),
                        array(  '#type' => 'markup', 'data' => $val->owner->id ),
                        array(  '#type' => 'markup','data' => $val->name), 
                        array(  '#type' => 'markup', 'data' => $val->status),
                        array(  '#type' => 'markup','data' =>  $zone_details ), 
+                       array(  '#type' => 'markup','data' =>  $dnsurl_details ), 
                    
                 );
       
@@ -117,13 +129,32 @@ class CloudfareController extends ControllerBase {
     //page rules
     $page_rules_params = $enpoint."zones/".$zid."/pagerules";
     $zone_details['pagerules'] = $this->_get_api_data($page_rules_params);
+    $page_rule_count_left = 20 - count($zone_details['pagerules']->result); 
+    $zone['page_rule_count'] = $page_rule_count_left;
+    $zone['pagerules'] = array();
+    $i = 0;
+    foreach($zone_details['pagerules']->result as $pr) {
+      $zone['pagerules'][$i]['val'] = $pr->targets[0]->constraint->value;
+      $zone['pagerules'][$i]['id'] = ucfirst($pr->actions[0]->id);
+    }
+
+
+    
+    
     //firewall
-    $firewall_params = $enpoint."zones/".$zid."/settings/waf";
+    $firewall_params = $enpoint."zones/".$zid."/settings/ip_firewall";
     $zone_details['firewall'] = $this->_get_api_data($firewall_params);
+   // print "<pre>";print_r($zone_details['firewall']);die();
+    
     // challange passage Options
     $challange_params = $enpoint."zones/".$zid."/settings/challenge_ttl";
     $zone_details['challange_passage_options'] = $this->_get_api_data($challange_params);
-    $zone['details'] = $zone_details;
+    $challange_minutes  = (int)$zone_details['challange_passage_options']->result->value/60;
+    $zone['challange_minutes'] =  $challange_minutes;
+
+    //print "<pre>";print_r($zone_details['challange_passage_options']);die();
+
+    $zone['details'] = (array) $zone_details;
     return [
     '#theme' => 'clodefare_zone_details',
     '#zone' => $zone,
@@ -132,12 +163,16 @@ class CloudfareController extends ControllerBase {
 
 
 
- public function cloudfare_dashboard() {
+ public function cloudfare_dashboard($zid = NULL) {
    $config = $this->config('cloudfare.settings');
    $enpoint = $config->get('cloudfare.endpoint');
   $zone_params = $enpoint.'zones';
   $zone = $this->_get_api_data($zone_params);
-  $zone_id = $zone->result[0]->id;
+  if($zid != NULL) {
+    $zone_id = $zid;
+  }else{
+    $zone_id = $zone->result[0]->id;  
+  }
   $output = '';
   $dns_params = $enpoint."zones/".$zone_id."/dns_records";
   if($_GET['dns_search'] != ''){
@@ -147,8 +182,8 @@ class CloudfareController extends ControllerBase {
   }
   // 
   $dns = $this->_get_api_data($dns_params);
-  $search_form = \Drupal::formBuilder()->getForm('Drupal\cloudfare_dashboard\Form\DNSSearchForm',$parameter);
-   $dns_form = \Drupal::formBuilder()->getForm('Drupal\cloudfare_dashboard\Form\DNSForm',$parameter);
+  $search_form = \Drupal::formBuilder()->getForm('Drupal\cloudfare_dashboard\Form\DNSSearchForm',$zone_id);
+   $dns_form = \Drupal::formBuilder()->getForm('Drupal\cloudfare_dashboard\Form\DNSForm',NULL,$zone_id);
   $build[]= array(
       'form' => $search_form,
 

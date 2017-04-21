@@ -34,13 +34,13 @@ class DNSSearchForm extends FormBase {
  
    */
  
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state, $zoneid = NULL) {
  
     if($_GET['dns_search'] != ''){
        $name = $_GET['dns_search'];
     }
     $form['#method'] = 'get';
-    $form['#action'] = '/cloudflare-dashboard';
+    $form['#action'] = '/cloudflare-dashboard/'.$zoneid;
     $form['dns_search']= array(
         '#type' => 'textfield',
         '#title' => t(''),
