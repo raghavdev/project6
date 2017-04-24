@@ -1,0 +1,23 @@
+
+<?php
+
+/**
+ * @file
+ * MTA Service Notices module.
+ */
+
+function service_notice_page_attachments(array &$attachments) {
+ if (\Drupal::routeMatch()->getRouteName() === 'page_manager.page_view_nyct' || \Drupal::routeMatch()->getRouteName() === 'page_manager.page_view_lirr' || \Drupal::routeMatch()->getRouteName() === 'page_manager.page_view_mnr' || \Drupal::routeMatch()->getRouteName() === 'page_manager.page_view_bandt') {
+    $attachments['#attached']['library'][] = 'service_notice/service_notice';
+  }
+}
+
+function service_notice_theme() {
+ return [
+    'service_notice' => [
+      // Here you can pass any variables you want, if necessary.
+      'variables' => ['service_notice' => NULL],
+       'template' => 'service_notice'
+    ],
+  ];
+}

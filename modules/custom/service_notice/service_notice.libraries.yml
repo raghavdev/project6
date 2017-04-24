@@ -1,0 +1,9 @@
+service_notice:
+  version: 1.x
+  header: true
+  css:
+    theme:
+      css/service_notice.css: {}
+
+
+

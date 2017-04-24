@@ -12,7 +12,7 @@ cloudfare_dashboard.overview:
     _title: 'Cloudflare Overview'
     _controller: '\Drupal\cloudfare_dashboard\CloudfareController::cloudfare_overview'
   requirements:
-    _permission: 'access Cloudflare'
+    _permission: 'manage Cloudflare zone'
 
 cloudfare_dashboard.zonedetails:
   path: '/cloudflare-zone-details/{zid}'
@@ -20,7 +20,7 @@ cloudfare_dashboard.zonedetails:
     _title: 'Cloudflare Overview'
     _controller: '\Drupal\cloudfare_dashboard\CloudfareController::cloudfare_zone_details'
   requirements:
-    _permission: 'access Cloudflare'
+    _permission: 'manage Cloudflare zone'
 
 cloudfare_dashboard.dashboard:
   path: '/cloudflare-dashboard/{zid}'
@@ -30,14 +30,14 @@ cloudfare_dashboard.dashboard:
   requirements:
     _permission: 'access Cloudflare'
 cloudfare_dashboard.record_delete:   
-  path: '/cloudflare-dashboard/{rid}/{content}/delete'
+  path: '/cloudflare-dashboard/{rid}/{content}/{zid}/delete'
   defaults:
-    _form: \Drupal\cloudflare_dashboard\Form\DeleteForm
+    _form: \Drupal\cloudfare_dashboard\Form\DeleteForm
     _title: 'Cloudflare Dashboard'
   requirements:
     _permission: 'access Cloudflare'
 cloudfare_dashboard.record_edit: 
-  path: '/cloudflare-dashboard/{rid}/edit'
+  path: '/cloudflare-dashboard/{rid}/{zid}/edit'
   defaults:
     _title: 'Cloudflare Dashboard'
     _controller: '\Drupal\cloudfare_dashboard\CloudfareController::cloudfare_dashboard_edit'

@@ -20,8 +20,8 @@ class CloudfareController extends ControllerBase {
     );
   }
 
- public function cloudfare_dashboard_edit($rid = NULL) {
-     $dns_form = \Drupal::formBuilder()->getForm('Drupal\cloudfare_dashboard\Form\DNSForm',$rid);
+ public function cloudfare_dashboard_edit($rid = NULL, $zid = NULL) {
+     $dns_form = \Drupal::formBuilder()->getForm('Drupal\cloudfare_dashboard\Form\DNSForm',$rid, $zid);
       $build[]= array(
       'form' => $dns_form,
 
@@ -215,8 +215,8 @@ class CloudfareController extends ControllerBase {
            $status = 'DNS and HTTP Proxy (CDN)';
         }
 
-       $editurl = Url::fromUserInput('/cloudflare-dashboard/'.$val->id.'/edit'); 
-       $deleteurl = Url::fromUserInput('/cloudflare-dashboard/'.$val->id.'/'.$val->name.'/delete'); 
+       $editurl = Url::fromUserInput('/cloudflare-dashboard/'.$val->id.'/'.$zone_id.'/edit'); 
+       $deleteurl = Url::fromUserInput('/cloudflare-dashboard/'.$val->id.'/'.$val->name.'/'.$zone_id.'/delete'); 
 		$editlink = Link::fromTextAndUrl(t("Edit"), $editurl);
 		$deletelink = Link::fromTextAndUrl(t("Delete"), $deleteurl);
 

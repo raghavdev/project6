@@ -45,7 +45,7 @@ class DeleteForm extends ConfirmFormBase {
   }
 
   public function getCancelUrl() {
-    return new Url('cloudfare_dashboard.dashboard');
+    return new Url('cloudfare_dashboard.dashboard',array('zid' => $this->zid) );
    
   }
 
@@ -58,10 +58,12 @@ class DeleteForm extends ConfirmFormBase {
 
   public function buildForm(array $form, 
                             FormStateInterface $form_state, 
-                            $rid = NULL, $content = NULL) {
+                            $rid = NULL, $content = NULL, $zid = NULL) {
+
     $this->rid = $rid;
     $this->content = $content;
-    return parent::buildForm($form, $form_state, $this->rid , $this->content);
+    $this->zid = $zid;
+    return parent::buildForm($form, $form_state, $this->rid , $this->content,$this->zid);
   }
 
   public function submitForm(array &$form, 
@@ -69,28 +71,32 @@ class DeleteForm extends ConfirmFormBase {
 
     // Use $this->oid to update the database, etc. ...
     $dns_id = $this->rid;
-    $result = $this->_delete_data($dns_id);
+    $result = $this->_delete_data($dns_id, $this->zid);
     if($result->success == 1 ) { 
       drupal_set_message("DNS Record ".$this->content." deleted");
     }else {
       drupal_set_message("DNS Record ".$this->content. " is not deleted, might be some problem with the Webserver.Please try after some time", 'error');
     }
     // Return to project listing page
-    $form_state->setRedirect('cloudfare_dashboard.dashboard');
+$form_state->setRedirect('cloudfare_dashboard.dashboard',array('zid' => $this->zid) );
 
   }
 
 
- function _delete_data($dns_id) {
-    $config = $this->config('cloudfare.settings');
+ function _delete_data($dns_id, $zid) {
+  $config = $this->config('cloudfare.settings');
   $username = $config->get('cloudfare.username');
   $api_key = $config->get('cloudfare.api_key');
   $password = $config->get('cloudfare.password');
   $enpoint = $config->get('cloudfare.endpoint');
-
+  
   $zone_params = $enpoint.'zones';
   $zone = $this->_get_api_data($zone_params);
-  $zone_id = $zone->result[0]->id;
+  if($zid != NULL) {
+      $zone_id = $zid;
+  }else{
+      $zone_id = $zone->result[0]->id;  
+  }
   $output = '';
   $dns_params = $enpoint."zones/".$zone_id."/dns_records/".$dns_id;
   $ch = curl_init();

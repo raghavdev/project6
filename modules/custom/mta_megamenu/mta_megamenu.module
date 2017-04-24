@@ -1,0 +1,21 @@
+
+<?php
+
+/**
+ * @file
+ * MTA mega Menu module.
+ */
+function mta_megamenu_page_attachments(array &$attachments) {
+ if (\Drupal::routeMatch()->getRouteName() === 'page_manager.page_view_home_page' || \Drupal::routeMatch()->getRouteName() === 'page_manager.page_view_nyct' || \Drupal::routeMatch()->getRouteName() === 'page_manager.page_view_lirr' || \Drupal::routeMatch()->getRouteName() === 'page_manager.page_view_mnr' || \Drupal::routeMatch()->getRouteName() === 'page_manager.page_view_bandt') {
+    $attachments['#attached']['library'][] = 'mta_megamenu/mta_megamenu';
+  }
+}
+function mta_megamenu_theme() {
+ return [
+    'mta_megamenu' => [
+      // Here you can pass any variables you want, if necessary.
+      'variables' => ['mta_megamenu' => NULL],
+       'template' => 'mta_megamenu'
+    ],
+  ];
+}

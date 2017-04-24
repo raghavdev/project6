@@ -1,0 +1,14 @@
+mta_megamenu:
+  version: 1.x
+  header: true
+  css:
+    theme:
+      css/homepage.css: {}
+      css/mta_megamenu.css: {}
+  js:
+    js/jkmegamenu.js: {}
+  dependencies:
+    - core/jquery
+
+
+

@@ -7,3 +7,7 @@ configure Cloudflare dashboard:
   title: 'configure Cloudflare dashboard'
   description: 'configure Cloudflare dashboard'
   restrict access: TRUE
+manage Cloudflare zone:
+  title: 'manage Cloudflare zone'
+  description: 'manage Cloudflare zone'
+  restrict access: TRUE
