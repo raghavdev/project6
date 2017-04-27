@@ -1,0 +1,305 @@
+
+
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - bundle: The bundle of a custom block.
+ * - view_mode: The view mode a custom block was rendered in.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+
+{% set transparent_img = '/images/img_trans.gif' %}
+
+
+<div id="{{ plugin_id }}" class="roundCorners featurebox">
+      <span id="statusDateTime"><?php echo "as of ". date("h:i:s a"); ?></span>
+    <div id = "statusblock-tabs">
+    <ul>
+        <li class="t tdiv selectedStatusTab" id="subwayTab">Subway</li>
+        <li class="t tdiv notselectedStatusTab" id="busTab">Bus</li>
+        <li class="t tdiv notselectedStatusTab" id="lirrTab">LIRR</li>
+        <li class="t tdiv notselectedStatusTab" id="mnrTab">MNR</li>
+        <li class="t tlast tdiv notselectedStatusTab" id="bntTab">B&T</li>
+    </ul>
+    </div>
+    <div {{ content_attributes.addClass('block__content') }} style="clear:both;">
+
+        
+
+        <div id="subwayDiv" style="float: left; margin-top: 1px;">
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999; padding: 1px 0;">
+                <div class="span-11"><img src="{{ base_path ~ directory }}{{ transparent_img }}" class="subwayIcon_123" alt="123 Subway Line Icons"/></div>
+                <div style="margin-top: 4px;" id="123" class="subwayCategory"></div>
+            </div>
+
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999; padding: 1px 0;">
+                <div class="span-11"><img width="1" height="1" src="{{ base_path ~ directory }}{{ transparent_img }}" class="subwayIcon_456" alt="456 Subway Line Icons"/></div>
+                <div style="margin-top: 4px;" id="456" class="subwayCategory"></div>
+            </div>
+
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999; padding: 1px 0;">
+                <div class="span-11"><img width="1" height="1" src="{{ base_path ~ directory }}{{ transparent_img }}" class="subwayIcon_7" alt="7 Subway Line Icons"/></div>
+                <div style="margin-top: 4px;" id="7" class="subwayCategory"></div>
+            </div>
+
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999; padding: 1px 0;">
+                <div class="span-11"><img width="1" height="1" src="{{ base_path ~ directory }}{{ transparent_img }}" class="subwayIcon_ACE" alt="ACE Subway Line Icons"/></div>
+                <div style="margin-top: 4px;" id="ACE" class="subwayCategory"></div>
+            </div>
+
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999; padding: 1px 0;">
+                <div class="span-11"><img width="1" height="1" src="{{ base_path ~ directory }}{{ transparent_img }}" class="subwayIcon_BDFM" alt="BDFM Subway Line Icons"/></div>
+                <div style="margin-top: 4px;" id="BDFM" class="subwayCategory"></div>
+            </div>
+
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999; padding: 1px 0;">
+                <div class="span-11"><img width="1" height="1" src="{{ base_path ~ directory }}{{ transparent_img }}" class="subwayIcon_G" alt="G Subway Line Icons"/></div>
+                <div style="margin-top: 4px;" id="G" class="subwayCategory"></div>
+            </div>
+
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999; padding: 1px 0;">
+                <div class="span-11"><img width="1" height="1" src="{{ base_path ~ directory }}{{ transparent_img }}" class="subwayIcon_JZ" alt="JZ Subway Line Icons"/></div>
+                <div style="margin-top: 4px;" id="JZ" class="subwayCategory"></div>
+            </div>
+
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999; padding: 1px 0;">
+                <div class="span-11"><img width="1" height="1" src="{{ base_path ~ directory }}{{ transparent_img }}" class="subwayIcon_L" alt="L Subway Line Icons"/></div>
+                <div style="margin-top: 4px;" id="L" class="subwayCategory"></div>
+            </div>
+
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999; padding: 1px 0;">
+                <div class="span-11"><img width="1" height="1" src="{{ base_path ~ directory }}{{ transparent_img }}" class="subwayIcon_NQR" alt="L Subway Line Icons"/></div>
+                <div style="margin-top: 4px;" id="NQR" class="subwayCategory"></div>
+            </div>
+
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999; padding: 1px 0;">
+                <div class="span-11"><img width="1" height="1" src="{{ base_path ~ directory }}{{ transparent_img }}" class="subwayIcon_S" alt="L Subway Line Icons"/></div>
+                <div style="margin-top: 4px;" id="S" class="subwayCategory"></div>
+            </div>
+
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999; padding: 1px 0;">
+                <div class="span-11"><img width="1" height="1" src="{{ base_path ~ directory }}{{ transparent_img }}" class="subwayIcon_SIR" alt="L Subway Line Icons"/></div>
+                <div style="margin-top: 4px;" id="SIR" class="subwayCategory"></div>
+            </div>
+        </div>
+        <!-- End of Subway -->
+
+        <!-- LIRR Rail Div -->
+        <div id="lirrDiv" style="float: left; display: none;">
+            <!--<span class="RailRoadCompany">Long Island Rail Road</span>-->
+            <!--<ul style="float: right; padding:0; margin:0">
+                <li class="gw list_h"><a style="color: #555;" href="http://mta.info/lirr/News/PlannedService.htm">Future Date</a></li>
+            </ul>-->
+
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <div class="railLineStatus" id="railSquare2"></div>
+                <div class="span-11 railLineItem">Babylon</div>
+                <div id="Babylon" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <div class="railLineStatus" id="railSquare1"></div>
+                <div class="span-11 railLineItem">City Terminal Zone</div>
+                <div id="CityTerminalZone" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <div class="railLineStatus" id="railSquare3"></div>
+                <div class="span-11 railLineItem">Far Rockaway</div>
+                <div id="FarRockaway" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <div class="railLineStatus" id="railSquare4"></div>
+                <div class="span-11 railLineItem">Hempstead</div>
+                <div id="Hempstead" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <div class="railLineStatus" id="railSquare5"></div>
+                <div class="span-11 railLineItem">Long Beach</div>
+                <div id="LongBeach" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <div class="railLineStatus" id="railSquare6"></div>
+                <div class="span-11 railLineItem">Montauk</div>
+                <div id="Montauk" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <div class="railLineStatus" id="railSquare7"></div>
+                <div class="span-11 railLineItem">Oyster Bay</div>
+                <div id="OysterBay" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <div class="railLineStatus" id="railSquare8"></div>
+                <div class="span-11 railLineItem">Port Jefferson</div>
+                <div id="PortJefferson" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <div class="railLineStatus" id="railSquare9"></div>
+                <div class="span-11 railLineItem">Port Washington</div>
+                <div id="PortWashington" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <div class="railLineStatus" id="railSquare10"></div>
+                <div class="span-11 railLineItem">Ronkonkoma</div>
+                <div id="Ronkonkoma" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <div class="railLineStatus" id="railSquare11"></div>
+                <div class="span-11 railLineItem">West Hempstead</div>
+                <div id="WestHempstead" class="railStation railCategory"></div>
+            </div>
+        </div>
+        <!-- End of LIRR Rail -->
+        <div id="mnrDiv" style="float: left; display: none;">
+            <!--<div class="statusrow" style="float: left; width: 100%;"><span class="RailRoadCompany">Metro-North Railroad</span>-->
+                <!--<ul style="float: right; padding:0; margin:0">
+                    <li class="gw list_h"><a style="color: #555;" href="http://mta.info/mnr/html/serviceupdates.htm">Future Date</a></li>
+                </ul>-->
+            <!--</div>-->
+
+
+            <div class="statusrow" style="float: left;">
+                <div class="railLineStatus" id="railSquare12"></div>
+                <div class="span-11 railLineItem">Hudson</div>
+                <div id="Hudson" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left;">
+                <div class="railLineStatus" id="railSquare13"></div>
+                <div class="span-11 railLineItem">Harlem</div>
+                <div id="Harlem" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow substation" style="float: left;">
+                <div class="railLineStatus"></div>
+                <div style="margin-left: 10px;" class="span-11 railLineItem">Wassaic</div>
+                <div id="Wassaic" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left;">
+                <div class="railLineStatus" id="railSquare15"></div>
+                <div class="span-11 railLineItem">New Haven</div>
+                <div id="NewHaven" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow substation" style="float: left;">
+                <div class="railLineStatus"></div>
+                <div style="margin-left: 10px;" class="span-11 railLineItem">New Canaan</div>
+                <div id="NewCanaan" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow substation" style="float: left;">
+                <div class="railLineStatus"></div>
+                <div style="margin-left: 10px;" class="span-11 railLineItem">Danbury</div>
+                <div id="Danbury" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow substation" style="float: left;">
+                <div class="railLineStatus"></div>
+                <div style="margin-left: 10px;" class="span-11 railLineItem">Waterbury</div>
+                <div id="Waterbury" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left;">
+                <div class="railLineStatus" id="railSquare19"></div>
+                <div class="span-11 railLineItem">Pascack Valley</div>
+                <div id="PascackValley" class="railStation railCategory"></div>
+            </div>
+            <div class="statusrow" style="float: left;">
+                <div class="railLineStatus" id="railSquare20"></div>
+                <div class="span-11 railLineItem">Port Jervis</div>
+                <div id="PortJervis" class="railStation railCategory"></div>
+            </div>
+        </div>
+        <!-- End of MNR Rail -->
+
+        <!-- Bus -->
+        <div id="busDiv" style="float: left; display: none; margin-top: 11px;">
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                    <span class="span-11 busLineItem">B1 - B84</span><span id="B1-B84" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">B100 - B103</span><span id="B100-B103" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">BM1 - BM5</span><span id="BM1-BM5" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">BX1 - BX55</span><span id="BX1-BX55" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">BXM1 - BXM18</span><span id="BXM1-BXM18" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">M1 - M116</span><span id="M1-M116" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">Q1 - Q113</span><span id="Q1-Q113" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">QM1 - QM25</span><span id="QM1-QM25" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">S40 - S98</span><span id="S40-S98" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">x1 - x68</span><span id="x1-x68" class="busCategory"></span>
+            </div>
+        </div>
+        <!-- End of Bus -->
+
+        <!-- Bridges & Tunnels -->
+        <div id="bntDiv" style="float: left; display: none; margin-top: 12px;">
+            <!--<ul style="float: right; padding:0; margin:0">
+                <li class="gw list_h"><a style="color: #555;" href="http://mta.info/bandt/traffic">Future Date</a></li>
+            </ul>-->
+
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">Throgs Neck</span><span id="ThrogsNeck" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">Henry Hudson</span><span id="HenryHudson" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">Marine Parkway</span><span id="MarineParkway" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">Bronx-Whitestone</span><span id="Bronx-Whitestone" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">Hugh L. Carey</span><span id="HughLCarey" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">Queens Midtown</span><span id="QueensMidtown" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">Robert F. Kennedy</span><span id="RobertFKennedy" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">Cross Bay</span><span id="CrossBay" class="busCategory"></span>
+            </div>
+            <div class="statusrow" style="float: left; border-bottom: 1px dotted #999999;">
+                <span class="span-11 busLineItem">Verrazano-Narrows</span><span id="Verrazano-Narrows" class="busCategory"></span>
+            </div>
+        </div>
+
+       
+    </div>
+
+</div><!-- /.block -->  
+
+

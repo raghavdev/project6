@@ -27,8 +27,14 @@ if (loadHour == 0) {
 	/* For date control in Trip Planner */
 //	document.forms["tpForm"].elements["fdate"].datepick({ showDefault: true });
 
-
-		
+jQuery(document).ready(function () {
+	jQuery( "input#txtOriginInput").blur(function() {
+      jQuery("img#tpimageForWait").css("visibility", "hidden");
+    });	
+    jQuery( "input#txtDestinationInput").blur(function() {
+      jQuery("img#tpimageForWait").css("visibility", "hidden");
+    }); 
+});
 function SetTimeMyTrip() {
 //	alert("made it");
     document.forms["tpForm"].elements["ampm"].selectedIndex = loadAMPM

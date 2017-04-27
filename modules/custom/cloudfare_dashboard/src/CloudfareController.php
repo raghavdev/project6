@@ -139,26 +139,39 @@ class CloudfareController extends ControllerBase {
     }
 
 
+    //rate limits
+    $rate_limits = $enpoint."zones/".$zid."/rate_limits";
+    $zone_details['rate_limits'] = $this->_get_api_data($rate_limits);
+    $zone['rate_limits_count'] =  $zone_details['rate_limits']->result_info->total_count;
     
     
     //firewall
-    $firewall_params = $enpoint."zones/".$zid."/settings/ip_firewall";
-    $zone_details['firewall'] = $this->_get_api_data($firewall_params);
-   // print "<pre>";print_r($zone_details['firewall']);die();
-    
+    // firewall/access_rules/rules?scope_type=zone&mode=challenge&configuration_target=ip&configuration_value=1.2.3.4&notes=mynote&match=all" \
+    $firewall = $enpoint."zones/".$zid."/firewall/access_rules/rules";
+   
+    $zone_details['firewall'] = $this->_get_api_data($firewall);
+    $zone['access_rule_count'] =  $zone_details['firewall']->result_info->total_count;
+    $firewall_array = (array) $zone_details['firewall']->result;
+    $j= 0;
+    foreach($firewall_array as $key => $f) {
+      $zone['firewall'][$j]['ip_value'] = $f->configuration->value;
+      $zone['firewall'][$j]['applies_to'] = $f->scope->type;
+      $zone['firewall'][$j]['mode'] = $f->mode;
+      $j++;
+    }
+      
     // challange passage Options
     $challange_params = $enpoint."zones/".$zid."/settings/challenge_ttl";
     $zone_details['challange_passage_options'] = $this->_get_api_data($challange_params);
     $challange_minutes  = (int)$zone_details['challange_passage_options']->result->value/60;
     $zone['challange_minutes'] =  $challange_minutes;
 
-    //print "<pre>";print_r($zone_details['challange_passage_options']);die();
-
     $zone['details'] = (array) $zone_details;
     return [
     '#theme' => 'clodefare_zone_details',
     '#zone' => $zone,
     ];
+    
   }
 
 

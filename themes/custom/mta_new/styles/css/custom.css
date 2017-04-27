@@ -1,0 +1,217 @@
+/**
+ * Custom CSS
+ * Use this file to override styles if you feel uncomfortable editing
+ * component stylesheets.
+ ============================================================================ */
+
+nav, .l-navbar, .pr-navbar {
+	background-color: #2D3039;
+	}
+.l-leaderboard, .l-header, .pr-header {
+	background-color: #1F2025;
+	color: #ffffff;
+	
+}
+.l-content-prefix, .l-content-prefix .regions {
+	background-color: #aaafd6;	
+}
+.l-footer, .pr-footer {
+    color: #ffffff;
+    background-color: #202329;
+    min-height: 300px;
+}
+.l-attribution {
+	background-color: #2C2F38;
+}
+
+#block-mtatripplanner-2 {
+	width: 35%;
+	float: left;
+    margin-right: 5%;
+}
+ui-datepicker-div {
+    z-index: 9999 !important;
+}
+#block-views-block-news-rotator-block-1 {float: right;width:60%;}
+
+/* from old MTA css */
+.accordion-block-content {
+	height: auto !important;
+}
+.views-field-counter {
+    float: left;
+    margin-left: 5px;
+}
+
+.views-content-counter {
+    text-align: center;
+    width: 29px;
+    background: url(images/bullets.png) no-repeat scroll center center transparent;
+    cursor: pointer;
+}
+.block-region-col-2 .block h2 {
+    display: block;
+    color: #3A3A3B;
+    font-size: 14px;
+    font-weight: bold;
+    background: #C6C8C9;
+    padding: 3px 0 3px 10px;
+    line-height: 19px;
+    margin-bottom: 0;
+
+}
+.ui-accordion .ui-accordion-content {
+    padding:0;
+    overflow: hidden;
+}
+#block-mtatripplanner {
+    margin:0;
+}
+.accordion-block-content h2.block__title {
+	display:none;
+}
+#panels-ipe-content .block-region-col-1 .block__inner,
+ #panels-ipe-content .block-region-col-2 .block__inner, 
+#panels-ipe-content .block-region-col-3 .block__inner {
+    border: 9px solid #EDEDED;
+    margin-bottom: 20px;
+    clear: both;
+}
+#panels-ipe-content .block-region-col-2 .accordion-block-content .block__inner {
+	border:none;
+    margin-bottom: 20px;
+    clear: none;
+}
+.accordion-block-content h2.block__title {
+	display:none;
+}
+h2.accordion-title{
+	color: #f1f1f1;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding-top: 6px;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: arial;
+}
+h2.accordion-title a{
+	color: #f1f1f1 !important;
+}
+h2.accordion-title img{
+  float: right;
+  margin-top: 3px;
+  margin-right: 10px;
+}
+
+h2#ui-id-1{
+background: #009300;
+color: #f1f1f1;
+}
+h2#ui-id-3{
+background: #1643AB;
+color: #f1f1f1;
+}
+h2#ui-id-5{
+background: #CC3300;
+color: #f1f1f1;
+}
+h2#ui-id-7{
+background: #880000;
+color: #f1f1f1;
+}
+h2#ui-id-9{
+background: #7F369A;
+color: #f1f1f1;
+}
+h2#ui-id-11{
+background: #006060;
+color: #f1f1f1;
+}
+h2#ui-id-13{
+    background: #339966;
+    color: #f1f1f1;
+}
+h2#ui-id-13{
+background: #1643AB;
+color: #f1f1f1;
+}
+
+/*Sub level menu*/
+ul.sf-menu.sf-style-none li li, ul.sf-menu.sf-style-none li li li, ul.sf-menu.sf-style-none.sf-navbar > li > ul, ul.sf-menu.sf-style-none.sf-navbar li ul {
+    background: #1643AB;
+}
+.sf-menu.sf-style-default li ul{  
+   margin-top: -2px; width: 160px; display: block;background-color: #ddd;}
+
+/*Sub level menu list items*/
+.sf-menu.sf-style-default li ul li{display: inline;float: none;border-left: none;}
+
+/* Sub level menu links style */
+#block-mainnavigation #superfish-main li.sf-depth-1 ul li a, #block-mainnavigation #superfish-main li.sf-depth-1 ul li a:visited{
+   padding: 10px 3px 5px 8px;
+    width: 160px; /*width of sub menu levels*/
+    font-size:88%;
+    color:#000;
+    background:none;
+    background-image: none; 
+    background-color: #ddd;
+    border-width: 0 1px 1px 1px;
+    text-align:left;
+    }
+#block-mainnavigation #superfish-main li.sf-depth-1 ul li.last a, #block-mainnavigation #superfish-main li.sf-depth-1 ul li.last a:visited{
+   padding: 10px 3px 15px 8px;
+    width: 160px; /*width of sub menu levels*/
+    font-size:88%;
+    color:#000;
+    background-image: none; 
+    background-color: #ddd;
+    border-width: 0 1px 1px 1px;
+    text-align:left;
+    }
+#block-mainnavigation #superfish-main li.sf-depth-1 ul li a:hover{
+    background-image: none; 
+    background-color: #ddd;
+    color:#0071C1;
+    }
+    
+#block-mainnavigation #superfish-main li.sf-depth-1 ul li.last a:hover{
+    padding: 10px 3px 15px 8px;
+    background-image: none; 
+    background-color: #ddd;
+    color:#0071C1;
+    }
+
+#block-mta-new-search form{
+    float: right;
+}
+
+#block-mta-new-search form input.form-search{
+    width:  87%;
+}
+#block-mta-new-search .submit-is-visible .search-block-form__form .form-search {
+      padding-right: 0; 
+}
+
+/* ENd Old MTA CSS */
+#ui-datepicker-div{
+        z-index: 9999 !important;
+}
+#divTime select{float:left;width: auto;}
+.l-rw{max-width: 85%;}
+
+#block-mainnavigation-2 ul li a{
+    display: block;
+    padding: 18px 11px 13px;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: "New Johnson";
+    margin-bottom: -2px;
+}
+
+#block-mainnavigation-2 .sf-sub-indicator{
+    right: 0;
+    top: 57%;
+}
+#block-gtranslate-2{width:20%;}

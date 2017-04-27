@@ -135,3 +135,76 @@
 
 
       </div></div></section>
+
+      <!-- Rate Limit -->
+      <section class="card">
+   <div class="card__sections_container">
+    <div class="card__sections">
+      <div class="card__section card__section--control">
+       <div class="card__control_text card__content_container">
+        <div class="card__content">
+          <h3 class="card__title">Rate Limiting</h3>
+           <p>Protect your site or API from malicious traffic by blocking client IP addresses that hit a URL pattern and exceed a threshold you define. Your existing Rate Limiting Rules are listed below. This feature is billed on <b>usage</b>.</p>
+        </div>
+       </div>
+      </div>
+      <div class="card__section card__section--table">
+       <div class="card__table">
+  
+          {% if zone.rate_limits_count  == 0 %} 
+          <strong>You currently have no Rate Limiting Rules. Please click on 'Enable Rate Limiting' to get started and then 'Create a Rate Limiting Rule' once you have enabled Rate Limiting.</strong>
+         {% else %}
+         
+         {% endif %}
+        </div>
+      </div>
+
+
+      </div></div></section>
+
+      <!-- firewall-->
+
+      <section class="card">
+   <div class="card__sections_container">
+    <div class="card__sections">
+      <div class="card__section card__section--control">
+       <div class="card__control_text card__content_container">
+        <div class="card__content">
+          <h2 class="card__title">Firewall</h2>
+          <h2 class="card__title">IP Firewall</h2>
+          <h4>Access Rules</h4>
+          <p>Firewall rules can be based on IP address, IP address range, Autonomous System Number (ASN) or country.</p>
+        </div>
+       </div>
+      </div>
+      <div class="card__section card__section--table">
+       <div class="card__table">
+    {% if zone.access_rule_count  > 0 %} 
+        <div class="table-container">
+
+           <table class="table table-striped table-hover page-rules-table">
+           <thead><tr>
+           <th class="sortable-arrow-cell renderable arrow">Value</th>
+           <th class="renderable url">Applies to</th>
+           <th class="renderable url">Mode</th>
+           </tr></thead>
+           <tfoot></tfoot>
+           <tbody>
+
+           {% for key,value in zone.firewall %}
+           <tr draggable="true" data-cid="view934" class="draggable">
+              <td>{{ value.ip_value }}</td>
+              <td>{{ value.applies_to }}</td>
+              <td>{{ value.mode }}</td>
+           </tr>
+           {% endfor %}
+           </tbody></table>
+         </div>
+         {% else %}
+         <strong>No Access Rules Defined</strong>
+         {% endif %}
+        </div>
+      </div>
+
+
+      </div></div></section>
