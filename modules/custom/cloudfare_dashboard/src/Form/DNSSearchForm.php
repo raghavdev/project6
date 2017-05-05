@@ -40,7 +40,7 @@ class DNSSearchForm extends FormBase {
        $name = $_GET['dns_search'];
     }
     $form['#method'] = 'get';
-    $form['#action'] = '/cloudflare-dashboard/'.$zoneid;
+    $form['#action'] = '/cloudflare-dashboard/';
     $form['dns_search']= array(
         '#type' => 'textfield',
         '#title' => t(''),

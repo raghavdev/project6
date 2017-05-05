@@ -88,10 +88,12 @@ class CloudfareController extends ControllerBase {
 
 
 
-  public function cloudfare_zone_details($zid = NULL) {
+  public function cloudfare_zone_details() {
 
     $config = $this->config('cloudfare.settings');
     $enpoint = $config->get('cloudfare.endpoint');
+    $zone_id = $config->get('cloudfare.zoneid');
+    $zid = $zone_id;
     $zone_params = $enpoint.'zones';
     $zone_details = array();
     $zone = array();
@@ -167,27 +169,24 @@ class CloudfareController extends ControllerBase {
     $zone['challange_minutes'] =  $challange_minutes;
 
     $zone['details'] = (array) $zone_details;
-    return [
-    '#theme' => 'clodefare_zone_details',
-    '#zone' => $zone,
-    ];
+    $build[] = array('#theme' => 'clodefare_zone_details', '#zone' => $zone);
+    return $build;
     
   }
 
 
 
- public function cloudfare_dashboard($zid = NULL) {
+ public function cloudfare_dashboard() {
+   $zone_details = $this->cloudfare_zone_details();
+   
    $config = $this->config('cloudfare.settings');
    $enpoint = $config->get('cloudfare.endpoint');
-  $zone_params = $enpoint.'zones';
-  $zone = $this->_get_api_data($zone_params);
-  if($zid != NULL) {
-    $zone_id = $zid;
-  }else{
-    $zone_id = $zone->result[0]->id;  
-  }
-  $output = '';
-  $dns_params = $enpoint."zones/".$zone_id."/dns_records";
+   $zone_id = $config->get('cloudfare.zoneid');
+   $zone_params = $enpoint.'zones';
+   $zone = $this->_get_api_data($zone_params);
+   $output = '';
+   $dns_params = $enpoint."zones/".$zone_id."/dns_records";
+
   if($_GET['dns_search'] != ''){
     $name = urlencode($_GET['dns_search']);
     // ?type=A&name=example.com&content=127.0.0.1&page=1&per_page=20&order=type&direction=desc&match=all" \
@@ -197,11 +196,11 @@ class CloudfareController extends ControllerBase {
   $dns = $this->_get_api_data($dns_params);
   $search_form = \Drupal::formBuilder()->getForm('Drupal\cloudfare_dashboard\Form\DNSSearchForm',$zone_id);
    $dns_form = \Drupal::formBuilder()->getForm('Drupal\cloudfare_dashboard\Form\DNSForm',NULL,$zone_id);
-  $build[]= array(
+  $zone_details[]= array(
       'form' => $search_form,
 
     );
-  $build[]= array(
+  $zone_details[]= array(
       'form' => $dns_form,
 
     );
@@ -256,7 +255,7 @@ class CloudfareController extends ControllerBase {
 
     //$output .= theme_table(array('header' => $header,'rows' => $row,'sticky' => TRUE));
     // Generate the table.
-    $build['config_table'] = array(
+    $zone_details['config_table'] = array(
       '#theme' => 'table',
       '#header' => $header,
       '#rows' => $rows,
@@ -266,16 +265,15 @@ class CloudfareController extends ControllerBase {
 
   }else{
     $output = "<strong>NO DNS Record FOUND</strong>";
-    $build = array(
-      '#markup' => $output
-    );
+    $zone_details['#markup'] = $output;
+    
   }
-  // The table description.
-    
  
-    
- // _delete_data('acf004b2c45bbab53b5856982e28bf8a');
-  return $build;
+  // The table description.
+  // $build = $zone_details;
+  
+
+  return $zone_details;
   }
 
 

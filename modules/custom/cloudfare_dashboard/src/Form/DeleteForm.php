@@ -78,7 +78,7 @@ class DeleteForm extends ConfirmFormBase {
       drupal_set_message("DNS Record ".$this->content. " is not deleted, might be some problem with the Webserver.Please try after some time", 'error');
     }
     // Return to project listing page
-$form_state->setRedirect('cloudfare_dashboard.dashboard',array('zid' => $this->zid) );
+$form_state->setRedirect('cloudfare_dashboard.dashboard' );
 
   }
 
@@ -87,6 +87,7 @@ $form_state->setRedirect('cloudfare_dashboard.dashboard',array('zid' => $this->z
   $config = $this->config('cloudfare.settings');
   $username = $config->get('cloudfare.username');
   $api_key = $config->get('cloudfare.api_key');
+  $zone_id = $config->get('cloudfare.zoneid');
   $password = $config->get('cloudfare.password');
   $enpoint = $config->get('cloudfare.endpoint');
   
@@ -94,8 +95,6 @@ $form_state->setRedirect('cloudfare_dashboard.dashboard',array('zid' => $this->z
   $zone = $this->_get_api_data($zone_params);
   if($zid != NULL) {
       $zone_id = $zid;
-  }else{
-      $zone_id = $zone->result[0]->id;  
   }
   $output = '';
   $dns_params = $enpoint."zones/".$zone_id."/dns_records/".$dns_id;
@@ -127,13 +126,13 @@ $form_state->setRedirect('cloudfare_dashboard.dashboard',array('zid' => $this->z
   $config = $this->config('cloudfare.settings');
   $username = $config->get('cloudfare.username');
   $api_key = $config->get('cloudfare.api_key');
+  $zone_id = $config->get('cloudfare.zoneid');
   $password = $config->get('cloudfare.password');
   $enpoint = $config->get('cloudfare.endpoint');
 
 
   $zone_params = $enpoint.'zones';
   $zone = $this->_get_api_data($zone_params);
-  $zone_id = $zone->result[0]->id;
   $output = '';
   if($id != ''){
      $dns_params = $enpoint."zones/".$zone_id."/dns_records/".$id;

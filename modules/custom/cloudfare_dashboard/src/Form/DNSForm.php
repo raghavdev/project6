@@ -56,6 +56,7 @@ class DNSForm extends FormBase {
     $config = $this->config('cloudfare.settings');
     $username = $config->get('cloudfare.username');
     $api_key = $config->get('cloudfare.api_key');
+    $zone_id = $config->get('cloudfare.zoneid');
     $password = $config->get('cloudfare.password');
     $enpoint = $config->get('cloudfare.endpoint');
   
@@ -64,9 +65,8 @@ class DNSForm extends FormBase {
     
     if($zid != NULL) {
       $zone_id = $zid;
-    }else{
-      $zone_id = $zone->result[0]->id;  
     }
+
     $output = '';
     $dns_params = $enpoint."zones/".$zone_id."/dns_records/".$rid;
     $dns = $this->_get_api_data($dns_params);
@@ -217,6 +217,7 @@ class DNSForm extends FormBase {
   $config = $this->config('cloudfare.settings');
   $username = $config->get('cloudfare.username');
   $api_key = $config->get('cloudfare.api_key');
+  $zone_id = $config->get('cloudfare.zoneid');
   $password = $config->get('cloudfare.password');
   $enpoint = $config->get('cloudfare.endpoint');
 
@@ -225,10 +226,8 @@ class DNSForm extends FormBase {
   $zone = $this->_get_api_data($zone_params);
    if($zid != NULL) {
       $zone_id = $zid;
-   }else{
-      $zone_id = $zone->result[0]->id;  
    }
-
+   
   $output = '';
   if($id != ''){
      $dns_params = $enpoint."zones/".$zone_id."/dns_records/".$id;

@@ -45,7 +45,7 @@ class CloudfareAdminSettingsForm extends ConfigFormBase {
       '#type' => 'textfield',
  
       '#title' => $this->t('Cloudflare Endpoint'),
-      '#desciption' => t('The REST API Endpoint'),
+      '#description' => t('The REST API Endpoint like https://api.cloudflare.com/client/v4/ '),
       '#default_value' => $config->get('cloudfare.endpoint', 'https://api.cloudflare.com/client/v4/'),
  
       '#required' => TRUE,
@@ -57,7 +57,7 @@ class CloudfareAdminSettingsForm extends ConfigFormBase {
       '#type' => 'textfield',
  
       '#title' => $this->t('Cloudflare Username'),
-      '#desciption' => t('The REST API Username'),
+      '#description' => t('The REST API Username like jlm1@nreca.org'),
      
       '#default_value' => $config->get('cloudfare.username' , 'jlm1@nreca.org'),
  
@@ -69,7 +69,7 @@ class CloudfareAdminSettingsForm extends ConfigFormBase {
       '#type' => 'textfield',
  
       '#title' => $this->t('Cloudflare Password'),
-      '#desciption' => t('The REST API password'),
+      '#description' => t('The REST API password like C00peratives'),
  
       '#default_value' => $config->get('cloudfare.password', 'C00peratives'),
  
@@ -82,7 +82,7 @@ class CloudfareAdminSettingsForm extends ConfigFormBase {
       '#type' => 'textfield',
  
       '#title' => $this->t('Cloudflare API Key'),
-      '#desciption' => t('The REST API KEY generate at My account page at https://www.cloudflare.com/a/account/my-account'),
+      '#description' => t('The REST API KEY generate at My account page at https://www.cloudflare.com/a/account/my-account like 9feaabea9a4c651f06e1126160f74fba36a7a'),
  
       '#default_value' => $config->get('cloudfare.api_key', '9feaabea9a4c651f06e1126160f74fba36a7a'),
  
@@ -90,6 +90,18 @@ class CloudfareAdminSettingsForm extends ConfigFormBase {
  
     );
 
+ $form['zoneid'] = array(
+ 
+      '#type' => 'textfield',
+ 
+      '#title' => $this->t('Cloudflare Zone ID'),
+      '#description' => t('The Zone ID of a domain like 537ab8bbbcff275f6846bfea4216c05b is for Cwbdevs.com'),
+ 
+      '#default_value' => $config->get('cloudfare.zoneid', '537ab8bbbcff275f6846bfea4216c05b'),
+ 
+      '#required' => TRUE,
+ 
+    );
  
     return $form;
  
@@ -110,7 +122,7 @@ class CloudfareAdminSettingsForm extends ConfigFormBase {
     $config->set('cloudfare.username', $form_state->getValue('username'));
     $config->set('cloudfare.password', $form_state->getValue('password'));
     $config->set('cloudfare.api_key', $form_state->getValue('api_key'));
- 
+    $config->set('cloudfare.zoneid', $form_state->getValue('zoneid'));
     $config->save();
  
     return parent::submitForm($form, $form_state);
