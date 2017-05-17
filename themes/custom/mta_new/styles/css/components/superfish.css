@@ -109,10 +109,11 @@ ul.sf-menu.sf-style-none li.sf-multicolumn-wrapper span.nolink.menuparent {
 }
 
 div.sf-accordion-toggle.sf-style-none a {
-  display: inline-block;
+  display: block;
   font-weight: bold;
-  padding: 1rem 2rem 1rem 1rem;
-  position: relative;
+  padding: 1rem 0;
+  position: relative; 
+  color: #fff;
 }
 
 div.sf-accordion-toggle.sf-style-none a.sf-expanded {
@@ -123,7 +124,7 @@ div.sf-accordion-toggle.sf-style-none > a:after {
   content: "≡";
   position: absolute;
   font-size: 2rem;
-  right: 0.75rem;
+  right: 0;
   top: 42%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);

@@ -39,7 +39,7 @@
     margin: 0 0 5px;
 }
 .close {
-    background-image: url("/sites/all/themes/mta/images/close-icon.jpg");
+    background-image: url("../images/close-icon.jpg");
     background-repeat: no-repeat;
     cursor: pointer;
     float: right;
@@ -48,7 +48,7 @@
     width: 52px;
 }
 .close-left {
-    background-image: url("/sites/all/themes/mta/images/close-icon.jpg");
+    background-image: url("../images/close-icon.jpg");
     background-repeat: no-repeat;
     cursor: pointer;
     height: 16px;

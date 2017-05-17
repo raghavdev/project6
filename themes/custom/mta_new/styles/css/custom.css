@@ -8,12 +8,16 @@ nav, .l-navbar, .pr-navbar {
 	background-color: #2D3039;
 	}
 .l-leaderboard, .l-header, .pr-header {
-	background-color: #1F2025;
+	background-color: #fff;
 	color: #ffffff;
 	
 }
 .l-content-prefix, .l-content-prefix .regions {
 	background-color: #aaafd6;	
+    position: relative;
+}
+.l-content-prefix .regions .l-r{
+    position: relative;
 }
 .l-footer, .pr-footer {
     color: #ffffff;
@@ -23,16 +27,91 @@ nav, .l-navbar, .pr-navbar {
 .l-attribution {
 	background-color: #2C2F38;
 }
-
-#block-mtatripplanner-2 {
-	width: 35%;
-	float: left;
-    margin-right: 5%;
+.block-search__content{
+    margin-top: 43px;
 }
+#block-mtatripplanner-2 {
+    background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0;
+    float: left;
+    margin: 0;
+    padding: 15px;
+    width: 30%;
+    z-index: 10;
+}
+
+.block--view-mode-full, .block-plugin-id--mta-megamenu-block{
+    width:100%;
+    float: left;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+}
+.block--view-mode-full h2, .block-plugin-id--mta-megamenu-block h2{
+    width: 100%;
+    float: left;
+    background: #f1f1f1 none repeat scroll 0 0;
+    padding: 5px 10px;
+    line-height: 25px;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 16px;
+    font-weight: bold;
+    color: #5c5c5c;
+    margin: 0;
+}
+.panel-body, .block--type-accordion-block .block__content{
+    padding: 10px;
+    width: 100%;
+    float: left;
+}
+.panel-body ul{
+    padding: 0;
+    list-style: none;
+}
+.panel-body ul li{
+    display: block;
+    line-height: normal;
+    border-bottom: 1px dashed #999;
+    padding: 5px 0;
+    
+}
+.panel-body ul li a{
+    color: #000;
+}
+.panel-body ul li:last-child{
+    border-bottom: none;
+}
+
+.block--type-basic, .block-config-provider--mta-megamenu{
+    width: 100%;
+    float: left;
+    margin-bottom: 1.25em;
+    margin-top: 0;
+}
+.block-main-content{
+    margin-top: 1.25em;
+    margin-bottom: 0;
+}
+.panel-heading h2 small{
+    font-size: 11px;
+}
+.block--type-accordion-block{
+    width: 100%;
+    float: left;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    margin-top: 0;
+    margin-bottom: 1.25em;
+}
+
+
 ui-datepicker-div {
     z-index: 9999 !important;
 }
-#block-views-block-news-rotator-block-1 {float: right;width:60%;}
+#block-views-block-news-rotator-block-1 {
+    float: left;
+    margin: 0;
+    width: 70%;
+}
 
 /* from old MTA css */
 .accordion-block-content {
@@ -40,26 +119,37 @@ ui-datepicker-div {
 }
 .views-field-counter {
     float: left;
-    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .views-content-counter {
     text-align: center;
-    width: 29px;
-    background: url(images/bullets.png) no-repeat scroll center center transparent;
+    width: 15px;
+    background:#fff;
     cursor: pointer;
+    height: 15px;
+    text-indent: -9999px;
+    border-radius: 50%;
 }
-.block-region-col-2 .block h2 {
-    display: block;
-    color: #3A3A3B;
-    font-size: 14px;
-    font-weight: bold;
-    background: #C6C8C9;
-    padding: 3px 0 3px 10px;
-    line-height: 19px;
-    margin-bottom: 0;
+.views_slideshow_pager_field_item.active .views-content-counter{
+    background: blue;
+}
+.views-slideshow-controls-bottom{
+    margin-top: 5px;
+}
+.views-field-title{
+    position:absolute;
+    left: 0;
+    padding: 15px;
+    background:rgba(0,0,0,0.5);
+    width: 100%;
+    bottom: 0;
+}
+.views-field-title a{
+    color: #fff;
+}
 
-}
+
 .ui-accordion .ui-accordion-content {
     padding:0;
     overflow: hidden;
@@ -70,12 +160,23 @@ ui-datepicker-div {
 .accordion-block-content h2.block__title {
 	display:none;
 }
-#panels-ipe-content .block-region-col-1 .block__inner,
- #panels-ipe-content .block-region-col-2 .block__inner, 
-#panels-ipe-content .block-region-col-3 .block__inner {
-    border: 9px solid #EDEDED;
-    margin-bottom: 20px;
-    clear: both;
+
+#riding-links #nestedCol1, #riding-links #nestedCol2{
+    width: 50%;
+}
+#riding-links ul, #riding-links li{
+    width: 100%;
+}
+.mega-text{
+    width: auto;
+}
+ul.arrow, .block__inner .block__content .field{
+    margin: 0;
+}
+#riding-links{
+    background: transparent;
+    height: auto;
+    padding: 0;
 }
 #panels-ipe-content .block-region-col-2 .accordion-block-content .block__inner {
 	border:none;
@@ -198,20 +299,162 @@ ul.sf-menu.sf-style-none li li, ul.sf-menu.sf-style-none li li li, ul.sf-menu.sf
 #ui-datepicker-div{
         z-index: 9999 !important;
 }
-#divTime select{float:left;width: auto;}
+
 .l-rw{max-width: 85%;}
 
 #block-mainnavigation-2 ul li a{
     display: block;
-    padding: 18px 11px 13px;
+    padding: 0 15px;
     text-decoration: none;
-    font-size: 16px;
-    font-family: "New Johnson";
-    margin-bottom: -2px;
+    color: #fff;
+    line-height: 50px;
+    font-size: 15px;
+    position: relative;
 }
-
+#block-mainnavigation-2 ul li > a:after{
+    
+    border-bottom: 2px transparent solid;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    transform: scaleX(0);
+    transition: transform 250ms ease-in;
+}
+#block-mainnavigation-2 ul li > a:hover:after{
+    
+    border-bottom: 2px #fff solid;
+    transform: scaleX(1);
+    
+}
 #block-mainnavigation-2 .sf-sub-indicator{
-    right: 0;
-    top: 57%;
+    font-size: 8px;
+    left: auto;
+    right: -9px;
+    top: 60%;
 }
 #block-gtranslate-2{width:20%;}
+
+.form-group{
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    position: relative;
+}
+.form-group > label{
+    display: inline;
+    float: left;
+    width: 15%;
+}
+.form-group > .input-group{
+    display: inline;
+    width: 83%;
+    float: left;
+    position: relative;
+}
+.radio-inline {
+    width: 100%;
+    float: left;
+}
+.radio-inline.leave {
+    width: 50%;
+    float: left;
+}
+.radio-inline select.form-control{
+    width: 32%;
+    float: left;
+    margin-right: 5px;
+}
+.radio-inline select.form-control:last-child{
+    margin-right: 0;
+}
+.list{
+    position: absolute;
+    top: 35px;
+    z-index: 1000;
+    width: 100% !important;
+}
+#divTransitMode.form-group > label{
+    width: 100%;
+}
+.checkbox-inline{
+    display: inline;
+    float: left;
+    margin-left: 5px;
+}
+.checkbox-inline label{ 
+    margin: 0;
+}
+.form-control{
+    border: 1px solid #d5d5d5 !important;
+}
+.listing{
+    width:100%;
+}
+.form-group.accessible-trip label{
+    float: none;
+    width: auto;
+}
+.btn{
+    padding: 5px 8px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+.btn.btn-primary{
+    background: #277cc5;
+    border: 1px solid #1f527d;
+}
+.btn.btn-primary:hover{
+    background: #145891;
+    border: 1px solid #1f527d;
+}
+.btn-block{
+    display: block;
+    width: 100%;
+}
+.views_slideshow_slide{
+    width: 100%;
+}
+/*---------------
+    Mobile
+------------------*/
+@media only screen and (min-width:320px) and (max-width:767px){
+    .l-r.pr-header__header-first{
+        width: auto;
+        float: left;
+        padding: 0;
+    }
+    .l-r.pr-header__header-second{
+        width: 200px;
+        float: right;
+        padding: 0;
+    }
+    .l-rw{
+        max-width: 100%;
+        display: block;
+    }
+    .l-r{
+        padding: 0;
+    }
+    .site-branding__logo-link{
+        padding-right: 0;
+    }
+    #block-mtatripplanner-2{
+        width: auto;
+        margin:0 -10px;
+    }
+    .views_slideshow_cycle_teaser_section{
+        width: 100% !important;
+    }
+    #block-views-block-news-rotator-block-1{
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    #riding-links #nestedCol1, #riding-links #nestedCol2{
+        width: 100%;
+    }
+}

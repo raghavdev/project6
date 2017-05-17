@@ -84,6 +84,8 @@
   background-repeat: no-repeat;
   border-radius: 0 2px 2px 0;
   background-size: contain;
+  background-color: blue;
+  border: none;
 }
 
 .search-block-form__form .contextual-render-processed {
